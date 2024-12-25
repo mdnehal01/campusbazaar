@@ -1,10 +1,6 @@
 import React from 'react'
-import { BiAlarm, BiBell, BiMoney, BiMoon, BiSun } from 'react-icons/bi';
-import { BsMoon, BsSun } from 'react-icons/bs';
+import { BiMoon, BiSun } from 'react-icons/bi';
 import { CgShoppingCart } from 'react-icons/cg';
-import { FaFire, FaThemeco } from 'react-icons/fa6';
-import { GiHotSpices, GiLoveHowl, GiLoveInjection, GiLoveLetter, GiLovers, GiLoveSong } from 'react-icons/gi';
-import { SiWish } from 'react-icons/si';
 
 function Nav() {
   return (
@@ -16,10 +12,10 @@ function Nav() {
           {/* TODO: For mobile */}
 
           <div className="nav-menu  w-50 bg-purple-100 px-10 py-2 rounded-3xl lg:flex gap-12 hidden">
-            <div className="wishlist flex gap-2"> <GiLoveSong size={20}/> Wishlist</div>
-            <div className="sell flex gap-2"> <BiMoney size={20}/> Sell</div>
-            <div className="trending flex gap-2"> <FaFire size={20}/> Trending</div>
-            <div className="notifications flex gap-2"> <BiBell size={20}/> Notifications</div>
+            <div className="wishlist cursor-pointer flex gap-2">Wishlist</div>
+            <div className="sell cursor-pointer flex gap-2">Sell</div>
+            <div className="trending cursor-pointer flex gap-2">Trending</div>
+            <div className="notifications cursor-pointer flex gap-2">Notifications</div>
           </div>
           <div className="nav-theme-cart flex gap-5">
             {/* TODO:  toggle  based on theme light or dark*/}
