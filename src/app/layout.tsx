@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-purple-100 via-white to-purple-50`}
       >
         <Nav/>
         <Box>
