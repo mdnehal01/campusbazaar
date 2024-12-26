@@ -5,6 +5,7 @@ import InputType1 from "./customs/inputType1";
 import { FaSearch } from "react-icons/fa";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const Hero = () => {
 
@@ -16,9 +17,11 @@ const Hero = () => {
 
   return (
     <div className="md:h-fit flex flex-col h-96 w-full pb-10 lg:px-20 px-5 relative">
-      <div className="tagline flex items-center justify-between pt-36  flex-col h-[400px]">
-        <h1 className="md:text-6xl text-4xl font-serif">Campus Bazaar</h1>
-        <h2 className="md:text-xl text-md md:-mt-16 mt-0 text-neutral-600 text-center">Explore work from the most talented <br /> and accomplished designers ready to take on your next project</h2>
+      <div className="tagline flex items-center justify-between flex-col h-[400px]">
+        {/* <h1 className="md:text-6xl text-4xl font-serif">Campus Bazaar</h1> */}
+        <Image src="/logo/cb-logo.png" height={300} width={300} alt="logo"/>
+
+        <h2 className="md:text-xl text-md md:mt-5 mt-0 text-neutral-600 text-center">Explore work from the most talented <br /> and accomplished designers ready to take on your next project</h2>
         {/* <h2 className="text-5xl">Buy, Sell, Reuse</h2> */}
         <div className="flex md:justify-start justify-center md:absolute top-0 lg:-right-64 md:-right-44 md:rotate-90 rotate-0 origin-top-left md:flex-col flex-row">
           <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99daff] to-[#99b9ff] text-transparent bg-clip-text">BUY &nbsp;</h1>
