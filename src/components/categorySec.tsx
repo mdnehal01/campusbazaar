@@ -1,6 +1,6 @@
 import React from 'react'
+import { CgArrowTopRight } from 'react-icons/cg'
 import "./components.css"
-
 
 const CategorySec = () => {
     return (
@@ -10,8 +10,12 @@ const CategorySec = () => {
                 {/* TODO: Make this as component */}
                     <div className="h-full flex justify-center items-center flex-col">
                         <div className="relative h-16 w-16 md:h-24 md:w-24 rounded-full bg-gradient-to-r from-blue-100 to-purple-50 -rotate-45">
-                            <div className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover bg-[url('category/1.png')] top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">
-                                
+                            <div 
+                            // CHANGE
+                                style={{ 
+                                    backgroundImage: `url('/category/1.png')` 
+                                }}
+                                className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">   
                             </div>
                         </div>
                         Phone
