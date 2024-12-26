@@ -1,6 +1,6 @@
 import React from 'react'
-import { CgArrowTopRight } from 'react-icons/cg'
 import "./components.css"
+
 
 const CategorySec = () => {
     return (
