@@ -3,16 +3,24 @@ import { twMerge } from "tailwind-merge";
 
 interface InputType1Props
     extends React.InputHTMLAttributes<HTMLInputElement> {
-
+        needIcon:boolean;
+        icon?:React.ReactNode;
+        onclick?: () => void;
+        iconbg?: string
     }
 
 const InputType1 = forwardRef<HTMLInputElement, InputType1Props>(({
     className,
     type,
     disabled,
+    icon,
+    needIcon,
+    onclick,
+    iconbg,
     ...props
 }, ref) => {
     return (
+        <div className="relative">
         <input type={type}
             className={twMerge(`
                     flex
@@ -38,6 +46,13 @@ const InputType1 = forwardRef<HTMLInputElement, InputType1Props>(({
                 ref={ref}
                 {...props}
         />
+
+        {needIcon && (
+            <div className={`cursor-pointer w-9 h-9 rounded-full bg-slate-500 ${iconbg} grid place-items-center shadow-md absolute top-[50%] -translate-y-[50%] right-[1%]`} onClick={onclick}>
+                {icon}
+            </div>
+        )}
+        </div>
     )
 })
 

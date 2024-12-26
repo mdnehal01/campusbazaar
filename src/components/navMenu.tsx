@@ -55,7 +55,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavigationMenuDemo() {
   return (
-    <NavigationMenu className="w-50 bg-purple-100 px-10 py-1 rounded-3xl lg:flex gap-12 hidden">
+    <NavigationMenu className="w-50 bg-[#EBF0FE] px-5 py-1 rounded-3xl lg:flex gap-12 hidden">
       <NavigationMenuList className="h-auto w-auto">
 
         {/* FOR Wishlist */}
