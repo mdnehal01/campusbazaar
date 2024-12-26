@@ -10,7 +10,7 @@ const CategorySec = () => {
                 {/* TODO: Make this as component */}
                     <div className="h-full flex justify-center items-center flex-col">
                         <div className="relative h-16 w-16 md:h-24 md:w-24 rounded-full bg-gradient-to-r from-blue-100 to-purple-50 -rotate-45">
-                            <div className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover bg-[url('https://imgs.search.brave.com/i5pZVjxnMMzrsyL6YS5WaoS9f-aHFPHrNkKo30ZamZA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nYWxsLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMTMvU2Ft/c3VuZy1HYWxheHkt/UE5HLUZpbGUucG5n')] top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">
+                            <div className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover bg-[url('category/1.png')] top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">
                                 
                             </div>
                         </div>
