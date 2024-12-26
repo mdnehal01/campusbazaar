@@ -15,18 +15,18 @@ const Hero = () => {
   }
 
   return (
-    <div className="md:h-[500px] flex flex-col h-96 w-full lg:px-20 px-5 relative">
+    <div className="md:h-fit flex flex-col h-96 w-full pb-10 lg:px-20 px-5 relative">
       <div className="tagline flex items-center justify-between pt-36  flex-col h-[400px]">
         <h1 className="md:text-6xl text-4xl font-serif">Campus Bazaar</h1>
-        <h2 className="text-xl -mt-16 text-neutral-600 text-center">Explore work from the most talented <br /> and accomplished designers ready to take on your next project</h2>
+        <h2 className="md:text-xl text-md md:-mt-16 mt-0 text-neutral-600 text-center">Explore work from the most talented <br /> and accomplished designers ready to take on your next project</h2>
         {/* <h2 className="text-5xl">Buy, Sell, Reuse</h2> */}
         <div className="flex md:justify-start justify-center md:absolute top-0 lg:-right-64 md:-right-44 md:rotate-90 rotate-0 origin-top-left md:flex-col flex-row">
-          <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99daff] to-[#99b9ff] text-transparent bg-clip-text">BUY</h1>
-          <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99f0ff] to-[#9a84ff] text-transparent bg-clip-text">RESELL</h1>
-          <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99ffe0] to-[#d199ff] text-transparent bg-clip-text">REUSE</h1>
+          <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99daff] to-[#99b9ff] text-transparent bg-clip-text">BUY &nbsp;</h1>
+          <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99f0ff] to-[#9a84ff] text-transparent bg-clip-text">RESELL &nbsp;</h1>
+          <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99ffe0] to-[#d199ff] text-transparent bg-clip-text">REUSE &nbsp;</h1>
         </div>
 
-        <InputType1 iconbg="bg-blue-500" needIcon={true} icon={<FaSearch className="text-white"/>} placeholder={search} onclick={handleSearch} className="relative bg-white rounded-full border-neutral-400 focus:border-blue-200 outline-none w-[500px] focus:bg-neutral-100 focus:w-[700px] transition-all duration-300"/>
+        <InputType1 iconbg="bg-blue-500" needIcon={true} icon={<FaSearch className="text-white"/>} placeholder={search} onclick={handleSearch} className="relative bg-white rounded-full border-neutral-400 focus:border-blue-200 outline-none md:w-[500px] w-[300px] focus:bg-neutral-100 md:focus:w-[700px] focus:w-[350px] transition-all duration-300"/>
       </div>
     </div>
   );
