@@ -16,10 +16,10 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
         </Link>
       </p>
       <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
-        {/* <Label htmlFor="email">Email</Label> */}
+        Email
         <InputType1 needIcon={false} name="email" placeholder="you@example.com" required />
         <div className="flex justify-between items-center">
-          {/* <Label htmlFor="password">Password</Label> */}
+          Password
           <Link
             className="text-xs text-foreground underline"
             href="/forgot-password"
