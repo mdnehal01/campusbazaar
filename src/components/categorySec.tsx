@@ -4,8 +4,8 @@ import "./components.css"
 
 const CategorySec = () => {
     return (
-        <div className="w-full overflow-x-auto h-40 md:px-20 px-5 flex scrollbar-hide">
-            <div className="flex gap-x-10 max-md:justify-start justify-center w-full whitespace-nowrap">
+        <div className="md:w-[90%] w-[95%] ml-[50%] -translate-x-[50%] overflow-x-auto h-44 flex scrollbar-hide">
+            <div className="flex gap-x-10 max-md:justify-start justify-start w-full whitespace-nowrap">
 
                 {/* TODO: Make this as component */}
                     <div className="h-full flex justify-center items-center flex-col">
@@ -18,16 +18,98 @@ const CategorySec = () => {
                                 className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">   
                             </div>
                         </div>
+                        Women
+                    </div>
+
+                    <div className="h-full flex justify-center items-center flex-col">
+                        <div className="relative h-16 w-16 md:h-24 md:w-24 rounded-full bg-gradient-to-r from-blue-100 to-purple-50 -rotate-45">
+                            <div 
+                            // CHANGE
+                                style={{ 
+                                    backgroundImage: `url('/category/2.png')` 
+                                }}
+                                className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">   
+                            </div>
+                        </div>
+                        Men
+                    </div>
+
+                    <div className="h-full flex justify-center items-center flex-col">
+                        <div className="relative h-16 w-16 md:h-24 md:w-24 rounded-full bg-gradient-to-r from-blue-100 to-purple-50 -rotate-45">
+                            <div 
+                            // CHANGE
+                                style={{ 
+                                    backgroundImage: `url('/category/3.png')` 
+                                }}
+                                className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">   
+                            </div>
+                        </div>
+                        Kids
+                    </div>
+
+                    <div className="h-full flex justify-center items-center flex-col">
+                        <div className="relative h-16 w-16 md:h-24 md:w-24 rounded-full bg-gradient-to-r from-blue-100 to-purple-50 -rotate-45">
+                            <div 
+                            // CHANGE
+                                style={{ 
+                                    backgroundImage: `url('/category/4.png')` 
+                                }}
+                                className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">   
+                            </div>
+                        </div>
+                        Accessories
+                    </div>
+
+                    <div className="h-full flex justify-center items-center flex-col">
+                        <div className="relative h-16 w-16 md:h-24 md:w-24 rounded-full bg-gradient-to-r from-blue-100 to-purple-50 -rotate-45">
+                            <div 
+                            // CHANGE
+                                style={{ 
+                                    backgroundImage: `url('/category/5.png')` 
+                                }}
+                                className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">   
+                            </div>
+                        </div>
+                        Makeup
+                    </div>
+                    
+                    <div className="h-full flex justify-center items-center flex-col">
+                        <div className="relative h-16 w-16 md:h-24 md:w-24 rounded-full bg-gradient-to-r from-blue-100 to-purple-50 -rotate-45">
+                            <div 
+                            // CHANGE
+                                style={{ 
+                                    backgroundImage: `url('/category/6.png')` 
+                                }}
+                                className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">   
+                            </div>
+                        </div>
                         Phone
                     </div>
 
                     <div className="h-full flex justify-center items-center flex-col">
-                        <div className="relative h-16 w-16 md:h-24 md:w-24 rounded-full bg-gradient-to-r from-blue-100 to-purple-50 transform -rotate-45">
-                            <div className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-[url('https://imgs.search.brave.com/pxRgtyJ_CYsjnxYZMjM-iu8KXNz580AJg-waVTaEGiw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5ncGxheS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzEvRWxl/Y3RyaWMtSXJvbi1Q/TkctUGhvdG9zLnBu/Zw')] bg-contain top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">
-                                
+                        <div className="relative h-16 w-16 md:h-24 md:w-24 rounded-full bg-gradient-to-r from-blue-100 to-purple-50 -rotate-45">
+                            <div 
+                            // CHANGE
+                                style={{ 
+                                    backgroundImage: `url('/category/7.png')` 
+                                }}
+                                className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">   
                             </div>
                         </div>
-                        Electronics
+                        Phone
+                    </div>
+
+                    <div className="h-full flex justify-center items-center flex-col">
+                        <div className="relative h-16 w-16 md:h-24 md:w-24 rounded-full bg-gradient-to-r from-blue-100 to-purple-50 -rotate-45">
+                            <div 
+                            // CHANGE
+                                style={{ 
+                                    backgroundImage: `url('/category/8.png')` 
+                                }}
+                                className="flex items-center justify-end flex-col rounded-full hover:scale-105 cursor-pointer transition-all duration-300 bg-center bg-cover top-0 h-16 w-16 md:h-24 md:w-24 left-0 rotate-45 absolute shadow-xl">   
+                            </div>
+                        </div>
+                        Phone
                     </div>
 
                     <div className="h-full flex justify-center items-center flex-col">

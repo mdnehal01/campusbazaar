@@ -2,6 +2,7 @@ import React from 'react'
 import { BiMenu, BiMoon, BiSun } from 'react-icons/bi';
 import { CgShoppingCart } from 'react-icons/cg';
 import { NavigationMenuDemo } from './navMenu';
+import AuthButton from './header-auth';
 
 function Nav() {
   return (
@@ -31,14 +32,15 @@ function Nav() {
           <div className="nav-theme-cart md:flex gap-5 flex">
             {/* TODO:  toggle  based on theme light or dark*/}
             <div className="nav-theme w-50 bg-[#EBF0FE] px-5 py-2 rounded-3xl gap-5 md:flex hidden"> <BiSun className='cursor-pointer' size={23}/>  <BiMoon className='cursor-pointer' size={25} /> </div>
-            <div className="nav-cart md:w-50 bg-[#EBF0FE] md:px-5 md:py-2 px-2 py-2 rounded-3xl flex gap-2"> <CgShoppingCart className='cursor-pointer' size={23} />  <span className='lg:flex hidden'>Cart</span></div>
+            {/* <div className="nav-cart md:w-50 bg-[#EBF0FE] md:px-5 md:py-2 px-2 py-2 rounded-3xl flex gap-2"> <CgShoppingCart className='cursor-pointer' size={23} />  <span className='lg:flex hidden'>Cart</span></div> */}
 
                       {/* TODO: For mobile Theme toggle will also be in this dropdown */}
           <div className='nav-menu p-2 bg-[#EBF0FE] rounded-3xl flex gap-12 lg:hidden'>
             <BiMenu className='text-black' size={25}/>
           </div>
           </div>
-
+          
+          <AuthButton/>
           
         </div>
     </div>

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Nav from "@/components/nav";
 import Box from "@/components/box";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,10 +31,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-purple-100 via-white to-purple-50`}
       >
-        <Nav/>
-        <Box>
-          {children}
-        </Box>
+        {/* <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        > */}
+          <Nav/>
+          <Box>
+            {children}
+          </Box>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );
