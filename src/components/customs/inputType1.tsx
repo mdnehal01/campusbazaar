@@ -20,7 +20,7 @@ const InputType1 = forwardRef<HTMLInputElement, InputType1Props>(({
     ...props
 }, ref) => {
     return (
-        <div className="relative">
+        <div className="relative w-fit">
         <input type={type}
             className={twMerge(`
                     flex
@@ -41,6 +41,7 @@ const InputType1 = forwardRef<HTMLInputElement, InputType1Props>(({
                     disabled:cursor-not-allowed
                     disabled:opacity-50
                     focus:outline-none
+                    relative
                 `, className)}
                 disabled={disabled}
                 ref={ref}

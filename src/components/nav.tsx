@@ -1,15 +1,20 @@
+"use client"
+
 import React from 'react'
 import { BiMenu, BiMoon, BiSun } from 'react-icons/bi';
 import { CgShoppingCart } from 'react-icons/cg';
 import { NavigationMenuDemo } from './navMenu';
+import Link from 'next/link';
+import { useUser } from '@/hooks/useUser';
 
 function Nav() {
+  const { user } = useUser();
   return (
     <div className="h-20 md:px-10 px-4 w-full bg-white/50 font-semibold text-slate-600">
         <div className="nav-items rounded-md h-full w-full flex items-center justify-between">
 
           {/* Logo for PC : NEHAL */}
-          <div className="nav-logo w-50 bg-[#EBF0FE] md:flex hidden px-10 py-2 rounded-3xl">Campus Bazaar</div>     
+          <div className="nav-logo w-50 bg-[#EBF0FE] md:flex hidden px-10 py-2 rounded-3xl"><Link href='/' >Campus Bazaar</Link></div>     
 
           {/* Logo For Phone : NEHAL */}
           <div className="nav-logo bg-[#EBF0FE] flex md:hidden rounded-full p-2">CB</div>
