@@ -3,6 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Nav from "@/components/nav";
 import Box from "@/components/box";
+import SupabaseProvider from "@/providers/SupabaseProvider";
+import ToasterProvider from "@/providers/ToasterProvider";
+import UserProvider from "@/providers/UserProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,10 +33,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-purple-100 via-white to-purple-50`}
       >
+        <ToasterProvider/>
+        <SupabaseProvider>
+          <UserProvider>
         <Nav/>
         <Box>
           {children}
         </Box>
+        </UserProvider>
+        </SupabaseProvider>
       </body>
     </html>
   );

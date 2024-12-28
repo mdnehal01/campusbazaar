@@ -1,9 +1,26 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import { BiMenu, BiMoon, BiSun } from 'react-icons/bi';
 import { CgShoppingCart } from 'react-icons/cg';
 import { NavigationMenuDemo } from './navMenu';
+import signOut from '@/actions/signOut';
+import Link from 'next/link';
+import { supabase } from '@/lib/supabase';
+
 
 function Nav() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const checkUserSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setIsLoggedIn(!!session);
+    };
+    checkUserSession();
+  }, []);
+
+
   return (
     <div className="h-20 md:px-10 px-4 w-full bg-white/50 font-semibold text-slate-600">
         <div className="nav-items rounded-md h-full w-full flex items-center justify-between">
@@ -32,14 +49,26 @@ function Nav() {
             {/* TODO:  toggle  based on theme light or dark*/}
             <div className="nav-theme w-50 bg-[#EBF0FE] px-5 py-2 rounded-3xl gap-5 md:flex hidden"> <BiSun className='cursor-pointer' size={23}/>  <BiMoon className='cursor-pointer' size={25} /> </div>
             <div className="nav-cart md:w-50 bg-[#EBF0FE] md:px-5 md:py-2 px-2 py-2 rounded-3xl flex gap-2"> <CgShoppingCart className='cursor-pointer' size={23} />  <span className='lg:flex hidden'>Cart</span></div>
+            
+            {/* Conditionally Render Login or SignOut */}
+          {!isLoggedIn ? (
+            <Link href="/login" className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+              Login
+            </Link>
+          ) : (
+            <div
+              onClick={signOut}
+              className="cursor-pointer bg-red-500 text-white px-4 py-2 rounded-lg"
+            >
+              Sign Out
+            </div>
+          )}
 
                       {/* TODO: For mobile Theme toggle will also be in this dropdown */}
           <div className='nav-menu p-2 bg-[#EBF0FE] rounded-3xl flex gap-12 lg:hidden'>
             <BiMenu className='text-black' size={25}/>
           </div>
           </div>
-
-          
         </div>
     </div>
   )

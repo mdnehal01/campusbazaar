@@ -1,3 +1,4 @@
+'use client'
 import CategorySec from "@/components/categorySec";
 import Hero from "@/components/hero";
 

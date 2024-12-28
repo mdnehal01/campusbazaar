@@ -1,4 +1,5 @@
 import React from 'react'
+import { supabase } from '@/lib/supabase';
 
 function Signup() {
   return (
@@ -9,7 +10,7 @@ function Signup() {
             <div className="box-left h-full w-[40%] bg-transparent"></div>
             <div className="box-right h-full w-[61%] bg-white">
                 <div className="main-content mx-[20%] my-[10%] h-[80%]">
-                    <h1 className="text-2xl font-extralight text-center font-semibold text-slate-700">Sign Up for Sustainability</h1>
+                    <h1 className="text-2xl text-center font-semibold text-slate-700">Sign Up for Sustainability</h1>
                     <h2 className="text-center text-slate-500 text-sm">By Buying & Selling old goods, you give them <br/> a new life, And reduce wastage</h2>
                     <br/>
                     <form>
