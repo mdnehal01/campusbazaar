@@ -15,7 +15,7 @@ export async function middleware(req:NextRequest){
         }
     } = await supabase.auth.getSession();
 
-    console.log(session);
+    // console.log(session);
 
     // // If not logged in then redirect to /login page 
     // // if(!session) {

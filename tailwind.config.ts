@@ -6,7 +6,7 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: ['class', "class"],
+  darkMode: "class",
   theme: {
   	extend: {
   		colors: {
@@ -28,6 +28,9 @@ export default {
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
+			blue: {
+				main: '#EBF0FE'
+			},
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
   				foreground: 'hsl(var(--muted-foreground))'

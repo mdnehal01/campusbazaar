@@ -2,6 +2,7 @@
 
 import loginWithPassword from "@/actions/loginWithPassword";
 import signupWithPassword from "@/actions/signupWithPassword";
+import { useRouter } from "next/navigation";
 import { useState } from "react"
 
 export default function Login() {
@@ -17,8 +18,10 @@ export default function Login() {
         setPassword(event.target.value);
     }
 
+    const router = useRouter();
+
     const login = async () => {
-        loginWithPassword(email, password);
+        loginWithPassword(email, password, router);
     } 
 
 

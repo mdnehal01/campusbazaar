@@ -15,6 +15,7 @@ const signupWithPassword = async (email:string, password:string) => {
         
         if(data) {
             console.log(data); 
+            window.location.href="/login"
         }
         
     } catch (error) {

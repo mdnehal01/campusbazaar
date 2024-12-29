@@ -24,8 +24,7 @@ function Signup() {
                         <input name="name" required className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
                         
                         <br/>
-                        <input type="submit" name="name" required className="bg-blue-500 h-8 w-40 text-white w-full border-2 rounded-3xl border-slate-300"/>  <br/>
-
+                        <input type="submit" name="name" required className="bg-blue-500 h-8 w-40 text-white border-2 rounded-3xl border-slate-300"/>  <br/>
                     </form>
                 </div>
             </div>
