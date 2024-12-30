@@ -1,8 +1,9 @@
 import React from 'react'
-import { supabase } from '@/lib/supabase';
+import SignUpForm from '@/components/SignUpForm';
 
 function Signup() {
-  return (
+
+    return (
     <div className="main h-screen flex">
         <div className="left h-full w-[70%] bg-blue-50"></div>
         <div className="right h-full w-[30%] bg-blue-900"></div>
@@ -13,19 +14,7 @@ function Signup() {
                     <h1 className="text-2xl text-center font-semibold text-slate-700">Sign Up for Sustainability</h1>
                     <h2 className="text-center text-slate-500 text-sm">By Buying & Selling old goods, you give them <br/> a new life, And reduce wastage</h2>
                     <br/>
-                    <form>
-                        <label className="text-slate-500 text-[14px]">Full Name</label>   <br/>
-                        <input name="name" required className="bg-slate-100 text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
-                        <label className="text-slate-500 text-[14px]">Email</label>   <br/>
-                        <input name="name" required className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
-                        <label className="text-slate-500 text-[14px]">Password</label>   <br/>
-                        <input name="name" required className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
-                        <label className="text-slate-500 text-[14px]">Confirm Password</label>   <br/>
-                        <input name="name" required className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
-                        
-                        <br/>
-                        <input type="submit" name="name" required className="bg-blue-500 h-8 w-40 text-white border-2 rounded-3xl border-slate-300"/>  <br/>
-                    </form>
+                    <SignUpForm/>
                 </div>
             </div>
         </div>

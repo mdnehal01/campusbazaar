@@ -1,7 +1,7 @@
 'use client'
 
 import loginWithPassword from "@/actions/loginWithPassword";
-import signupWithPassword from "@/actions/signupWithPassword";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react"
 
@@ -34,6 +34,8 @@ export default function Login() {
             <input type="password" name="password" value={password} onChange={handleChangePass} />
             <br />
             <button onClick={login}>Login</button>
+
+            Don't have an account? <Link href="/signup" className="text-blue-500">Signup</Link>
         </div>
     )
 }
