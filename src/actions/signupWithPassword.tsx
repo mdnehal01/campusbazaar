@@ -1,6 +1,9 @@
 import { supabase } from "@/lib/supabase";
 
+
+// TODO: add name, college name etc. in arguments
 const signupWithPassword = async (email:string, password:string) => {
+    console.log(email);
     try {
         const { data, error } = await supabase
             .auth

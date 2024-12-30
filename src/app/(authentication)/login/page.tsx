@@ -1,6 +1,7 @@
 'use client'
 
 import loginWithPassword from "@/actions/loginWithPassword";
+import { BananaIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react"
@@ -39,3 +40,6 @@ export default function Login() {
         </div>
     )
 }
+
+
+
