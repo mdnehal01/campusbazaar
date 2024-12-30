@@ -6,21 +6,25 @@ import React, { useEffect } from 'react'
 
 const Profile = () => {
 
-    const { user, isLoading } = useUser();
-    const router = useRouter();
 
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    //////////// KNOW: This piece of code varifies that if there is no user logged in /////////
+    // The page will automatically redirected to "login" page automatically //////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////
+
+    const { user, isLoading, userDetails } = useUser();
+    const router = useRouter();
+    
     useEffect(() => {
         if(!isLoading && !user) {
-            router.replace('/')
+            router.replace('/login')
         }
     }, [isLoading, user, router]);
+    //////////////////////////////////////////////////////////////////////////////////
     
 
     return (
         <div>
-            {user?.id}
-            {user?.email}
-            {String(user)}
         </div>
     )
 }

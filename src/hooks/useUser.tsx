@@ -2,6 +2,8 @@
 import { UserDetails } from "@/types";
 
 import { User } from "@supabase/auth-helpers-nextjs";
+
+// KNOW: useUser will fetch the current user from {auth table} {the user who is logged in based on the session}
 import { useSessionContext, useUser as useSupaUser } from "@supabase/auth-helpers-react";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -28,29 +30,33 @@ export const MyUserContextProvider = (props: Props) => {
         supabaseClient: supabase
     } = useSessionContext();
     
+    // KNOW: Here the user who is logged in is stored in a variable name user
     const user = useSupaUser();
+
     const accessToken = session?.access_token ?? null;
     const [isLoadingData, setIsLoadingData] = useState(false);
     const [userDetails, setUserDetails] = useState<UserDetails | null>(null); 
     // const [subscription, setSubscription] = useState<Subscription | null>(null);
 
-    const getUserDetails = () => supabase.from('users').select('*').eq('id', user?.id).single();
-    const getSubscription = () =>
-        supabase
-            .from('subscriptions')
-            .select('*, prices(*, products(*))')
-            .eq('user_id', user?.id) // Filter by the current user's ID
-            .in('status', ['trialing', 'active'])
-            .single();
+    // KNOW: here we are getting the user details from the {Public users table}
+    const getUserDetails = () => supabase.from('users').select('*').eq('user_id', user?.id).single();
+
+    // const getSubscription = () =>
+    //     supabase
+    //         .from('subscriptions')
+    //         .select('*, prices(*, products(*))')
+    //         .eq('user_id', user?.id) // Filter by the current user's ID
+    //         .in('status', ['trialing', 'active'])
+    //         .single();
 
     useEffect(() => {
         if (user && !isLoadingData && !userDetails /* && !subscription*/) {
             setIsLoadingData(true);
 
-            Promise.allSettled([getUserDetails(), getSubscription()]).then(
+            Promise.allSettled([getUserDetails() /*,getSubscription()*/]).then(
                 (results) => {
                     const userDetailsPromise = results[0];
-                    const subscriptionPromise = results[1];
+                    // const subscriptionPromise = results[1];
 
                     if(userDetailsPromise.status === "fulfilled") {
                         setUserDetails(userDetailsPromise.value.data as UserDetails);

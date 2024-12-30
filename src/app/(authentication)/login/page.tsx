@@ -26,6 +26,7 @@ export default function Login() {
 
 
     return (
+        // TODO:Insha: Form ko ache se design karo jaise tum design karogi signup form 
         <div>
             Email
             <input type="email" name="email" value={email} onChange={handleChangeEmail} />
@@ -34,7 +35,7 @@ export default function Login() {
             <input type="password" name="password" value={password} onChange={handleChangePass} />
             <br />
             <button onClick={login}>Login</button>
-
+            <br />
             Don't have an account? <Link href="/signup" className="text-blue-500">Signup</Link>
         </div>
     )
