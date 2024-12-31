@@ -37,18 +37,25 @@ const SignUpForm = () => {
         setYear(event.target.value);
     };
 
+    const [college, setCollege] = useState("");
+    const handleChangeCollege = (event:React.ChangeEvent<HTMLInputElement>) => {
+        setCollege(event.target.value);
+    }
+
+
     const handleSignup = () => {
         // event.preventDefault(); // Prevent form reload (GPT told)
-        // TODO: Handle Signup
+        // DONE: Handle Signup
         if(password!==confirmpass)   alert("Confirm Password does NOT match Password!!!");
         else{
-            signupWithPassword(email, password);
-            alert(`Welcome ${password}! ${email}`);
+            signupWithPassword(email, password, name, depart, college, year);
+            // alert(`Welcome ${password}! ${email}`);
         } 
     }
     
     return (
-        <form onSubmit={handleSignup} method='post'>
+        // <form onSubmit={handleSignup} method='post'>
+        <>
             <label className="text-slate-500 text-[14px]">Full Name</label>   <br/>
             <input name="name" value={name} onChange={handleChangeName} required type="text" className="bg-slate-100 text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
             
@@ -60,16 +67,19 @@ const SignUpForm = () => {
             
             <label className="text-slate-500 text-[14px]">Confirm Password</label>   <br/>
             <input name="confirmpass" value={confirmpass} onChange={handleChangeConfirmpass} required type="password" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
+
+            <label className="text-slate-500 text-[14px]">College Name</label>  
+            <input name="college" value={college} onChange={handleChangeCollege}  className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
             
             <label className="text-slate-500 text-[14px]">Department</label>  
             <input name="depart" value={depart} onChange={handleChangeDepart}  className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
-            
+
             <label className="text-slate-500 text-[14px]">Year of Graduation</label>  
             <input name="year" value={year} onChange={handleChangeYear}  type="number" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
                  
             <br/>
-            <input type="submit" name="submit" required className="bg-blue-500 h-8 w-40 text-white border-2 rounded-3xl border-slate-300"/>  <br/>
-        </form>
+            <input type="submit" onClick={handleSignup} name="submit" required className="bg-blue-500 h-8 w-40 text-white border-2 rounded-3xl border-slate-300"/>  <br/>
+        </>
   )
 }
 
