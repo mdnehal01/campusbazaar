@@ -3,11 +3,16 @@ import signupWithPassword from '@/actions/signupWithPassword';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 
-const SignUpForm = () => {
+// interface SignUpFormProps {
+//     message?:string;
+// }
+
+const SignUpForm= () => {
 
     // TODO:Insha: go to login/page.tsx and jaise jaise use state wala waha hua hai mtlb ki form me data change karo to state bhi change hogi waise karo
     // Chahe to hum kar le lekin tum apne se karogi to tumhe bhi cheeze aayegi 
-    
+    const [message, setMessage] = useState("");
+
     const [name, setName]= useState("");
     const handleChangeName=(event: React.ChangeEvent<HTMLInputElement>)=>{
         setName(event.target.value);
@@ -16,6 +21,12 @@ const SignUpForm = () => {
     const [email, setEmail]=useState("");
     const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
+    };
+    
+    const [phone, setPhone] = useState(""); 
+
+    const handleChangePhone = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setPhone(event.target.value);
     };
 
     const [password, setPassword]=useState("");
@@ -44,31 +55,27 @@ const SignUpForm = () => {
     }
 
 
-    const handleSignup = () => {
+
+    const handleSignup = async (event: React.FormEvent<HTMLFormElement>) => {
         // event.preventDefault(); // Prevent form reload (GPT told)
         // DONE: Handle Signup
+        event.preventDefault();
         if(password!==confirmpass)   toast.error("Confirm Password does NOT match Password!!!");
         else{
-            signupWithPassword(email, password, name, depart, college, year);
+            setMessage(await signupWithPassword(email, password, name, depart, college, year, phone));
             // alert(`Welcome ${password}! ${email}`);
         } 
     }
     
     return (
         // <form onSubmit={handleSignup} method='post'>
-        <>
+        <form method='post' onSubmit={handleSignup}>
             <label className="text-slate-500 text-[14px]">Full Name</label>   <br/>
             <input name="name" value={name} onChange={handleChangeName} required type="text" className="bg-slate-100 text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
             
             <label className="text-slate-500 text-[14px]">Email</label>   <br/>
             <input name="email" value={email} onChange={handleChangeEmail} required type="email" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
             
-            <label className="text-slate-500 text-[14px]">Password</label>   <br/>
-            <input name="password" value={password} onChange={handleChangePassword} required type="password" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
-            
-            <label className="text-slate-500 text-[14px]">Confirm Password</label>   <br/>
-            <input name="confirmpass" value={confirmpass} onChange={handleChangeConfirmpass} required type="password" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
-
             <label className="text-slate-500 text-[14px]">College Name</label>  
             <input name="college" value={college} onChange={handleChangeCollege}  className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
             
@@ -78,9 +85,25 @@ const SignUpForm = () => {
             <label className="text-slate-500 text-[14px]">Year of Graduation</label>  
             <input name="year" value={year} onChange={handleChangeYear}  type="number" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
                  
+            <label className="text-slate-500 text-[14px]">Phone No.</label>  
+            <input name="phone" min={0} step={1} type='text' value={phone} onChange={handleChangePhone}  className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
+            
+            <label className="text-slate-500 text-[14px]">Password</label>   <br/>
+            <input name="password" value={password} onChange={handleChangePassword} required type="password" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
+            
+            <label className="text-slate-500 text-[14px]">Confirm Password</label>   <br/>
+            <input name="confirmpass" value={confirmpass} onChange={handleChangeConfirmpass} required type="password" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
+
             <br/>
-            <input type="submit" onClick={handleSignup} name="submit" required className="bg-blue-500 h-8 w-40 text-white border-2 rounded-3xl border-slate-300"/>  <br/>
-        </>
+            <input type="submit" name="submit" required className="w-full bg-blue-500 h-8 text-white border-2 rounded-3xl border-slate-300"/>  <br/>
+
+            {message && 
+            <div className='text-red-500'>
+                {message}    
+            </div>
+            }
+            {/* {message} */}
+        </form>
   )
 }
 

@@ -3,7 +3,9 @@ import toast from "react-hot-toast";
 
 
 // TODO: add name, college name etc. in arguments
-const signupWithPassword = async (email:string, password:string, name:string, depart:string, college:string, year:string) => {
+const signupWithPassword = async (email:string, password:string, name:string, depart:string, college:string, year:string, phone:string) => {
+
+    let message = "";
 
     const {data:userMail} = await supabase
         .from('users')
@@ -12,7 +14,9 @@ const signupWithPassword = async (email:string, password:string, name:string, de
         .single()
 
         if(userMail!=null){
-            return toast.error("User already exists")
+            message = "User already exists"
+            toast.error(message)
+            return message
         }else{
             const { data, error } = await supabase
             .auth
@@ -26,26 +30,39 @@ const signupWithPassword = async (email:string, password:string, name:string, de
                 })
             
             if(error){
-                toast.error(String(error.message));
+                message = String(error.message)
+                toast.error(message)
+                return message;
                 // toast.error(error.code?.toString())
             }else{
                 // Inserting user details in the user table
                 const userId = data.user?.id;
-                toast.success(String(userId));
-                // const {data:updateData, error:updateError} = await supabase
-                //     .from('users')
-                toast.success(`Email sent for verification ${data.user?.email}`)
+
+                const { data: updateData, error: updateError } = await supabase
+                .from('users')
+                .insert({
+                  user_id: userId,
+                  name: name,
+                  email: email,
+                  phone_number: phone,
+                  college: college,
+                  department:depart,
+                  year:year,
+                  recent_searches: []
+                });
+              
+              if (updateError) {
+                message = String(updateError.message)
+                toast.error(message)
+                return message
+              }else{
+                message = `Verification link sent to email: ${data.user?.email}`
+                toast.success(message);
+                return message
+              }
+                    
             }
         }
-
-        // toast.error(String(userError?.message))
-    
-
-        // if(data.user?.email == email) {
-        //     console.log(data.user?.email); 
-        //     window.location.href="/login"
-        //     // TODO:Insha: Insert email userid college etc
-        // }
 }
 
 export default signupWithPassword

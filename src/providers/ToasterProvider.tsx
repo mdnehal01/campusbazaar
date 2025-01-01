@@ -10,14 +10,14 @@ const ToasterProvider = () => {
             toastOptions={{
                 success:{
                     style:{
-                        background:"green",
-                        color:"white"
+                        background:"#D0E8C5",
+                        color:"black"
                     }
                 },
                 error:{
                     style: {
-                        background: 'red',
-                        color: 'white'
+                        background: '#FFE2E2',
+                        color: 'black'
                     }
                 }
             }}
