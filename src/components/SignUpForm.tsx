@@ -95,7 +95,7 @@ const SignUpForm= () => {
             <input name="confirmpass" value={confirmpass} onChange={handleChangeConfirmpass} required type="password" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
 
             <br/>
-            <input type="submit" name="submit" required className="w-full bg-blue-500 h-8 text-white border-2 rounded-3xl border-slate-300"/>  <br/>
+            <input type="submit" name="submit" required className="cursor-pointer w-full bg-blue-400 hover:bg-blue-500 h-8 text-white border-2 rounded-3xl border-slate-300"/>  <br/>
 
             {message && 
             <div className='text-red-500'>

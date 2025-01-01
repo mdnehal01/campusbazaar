@@ -1,6 +1,5 @@
 "use client"
 import { useUser } from '@/hooks/useUser'
-import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
 
