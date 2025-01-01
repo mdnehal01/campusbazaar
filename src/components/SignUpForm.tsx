@@ -1,6 +1,7 @@
 "use client"
 import signupWithPassword from '@/actions/signupWithPassword';
 import React, { useState } from 'react'
+import Link from 'next/link';
 import toast from 'react-hot-toast';
 
 // interface SignUpFormProps {
@@ -73,29 +74,41 @@ const SignUpForm= () => {
             <label className="text-slate-500 text-[14px]">Full Name</label>   <br/>
             <input name="name" value={name} onChange={handleChangeName} required type="text" className="bg-slate-100 text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
             
-            <label className="text-slate-500 text-[14px]">Email</label>   <br/>
-            <input name="email" value={email} onChange={handleChangeEmail} required type="email" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
-            
             <label className="text-slate-500 text-[14px]">College Name</label>  
             <input name="college" value={college} onChange={handleChangeCollege}  className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
             
-            <label className="text-slate-500 text-[14px]">Department</label>  
-            <input name="depart" value={depart} onChange={handleChangeDepart}  className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
+            <div className='flex gap-x-[6%]'>
+                <div className='w-[47%]'>
+                    <label className="text-slate-500 text-[14px]">Department</label>  
+                    <input name="depart" value={depart} onChange={handleChangeDepart}  className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
+                </div>
+                <div className='w-[47%]'>
+                    <label className="text-slate-500 text-[14px]">Year of Graduation</label>  
+                    <input name="year" value={year} onChange={handleChangeYear}  type="number" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
+                </div>
+            </div>
 
-            <label className="text-slate-500 text-[14px]">Year of Graduation</label>  
-            <input name="year" value={year} onChange={handleChangeYear}  type="number" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
-                 
             <label className="text-slate-500 text-[14px]">Phone No.</label>  
             <input name="phone" min={0} step={1} type='text' value={phone} onChange={handleChangePhone}  className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
             
-            <label className="text-slate-500 text-[14px]">Password</label>   <br/>
-            <input name="password" value={password} onChange={handleChangePassword} required type="password" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
-            
-            <label className="text-slate-500 text-[14px]">Confirm Password</label>   <br/>
-            <input name="confirmpass" value={confirmpass} onChange={handleChangeConfirmpass} required type="password" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
+            <label className="text-slate-500 text-[14px]">Email</label>   <br/>
+            <input name="email" value={email} onChange={handleChangeEmail} required type="email" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
+
+            <div className='flex gap-[6%]'>
+                <div className='w-[47%]'>
+                    <label className="text-slate-500 text-[14px]">Password</label>   <br/>
+                    <input name="password" value={password} onChange={handleChangePassword} required type="password" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
+                </div>
+                <div className='w-[47%]'>
+                    <label className="text-slate-500 text-[14px]">Confirm Password</label>   <br/>
+                    <input name="confirmpass" value={confirmpass} onChange={handleChangeConfirmpass} required type="password" className="bg-slate-100  text-slate-500 w-full border-2 rounded-3xl border-slate-300"/>  <br/>
+                </div>
+            </div>
 
             <br/>
             <input type="submit" name="submit" required className="cursor-pointer w-full bg-blue-400 hover:bg-blue-500 h-8 text-white border-2 rounded-3xl border-slate-300"/>  <br/>
+            
+            <h2 className="text-slate-500 text-[14px] pt-3"> Already a User?   <Link href="/login" className="text-blue-500">Login</Link>  </h2>
 
             {message && 
             <div className='text-red-500'>
