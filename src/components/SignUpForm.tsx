@@ -1,6 +1,7 @@
 "use client"
 import signupWithPassword from '@/actions/signupWithPassword';
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 
 const SignUpForm = () => {
 
@@ -46,7 +47,7 @@ const SignUpForm = () => {
     const handleSignup = () => {
         // event.preventDefault(); // Prevent form reload (GPT told)
         // DONE: Handle Signup
-        if(password!==confirmpass)   alert("Confirm Password does NOT match Password!!!");
+        if(password!==confirmpass)   toast.error("Confirm Password does NOT match Password!!!");
         else{
             signupWithPassword(email, password, name, depart, college, year);
             // alert(`Welcome ${password}! ${email}`);

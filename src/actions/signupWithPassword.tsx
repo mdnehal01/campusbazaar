@@ -27,7 +27,13 @@ const signupWithPassword = async (email:string, password:string, name:string, de
             
             if(error){
                 toast.error(String(error.message));
+                // toast.error(error.code?.toString())
             }else{
+                // Inserting user details in the user table
+                const userId = data.user?.id;
+                toast.success(String(userId));
+                // const {data:updateData, error:updateError} = await supabase
+                //     .from('users')
                 toast.success(`Email sent for verification ${data.user?.email}`)
             }
         }
