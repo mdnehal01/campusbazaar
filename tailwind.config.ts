@@ -29,7 +29,9 @@ export default {
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
   			blue: {
-  				main: '#EBF0FE'
+  				main: '#EBF0FE',
+				blue1:'#ddf0f4',
+
   			},
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
