@@ -1,10 +1,8 @@
+"use client"
 import loginWithPassword from '@/actions/loginWithPassword';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
-import InputType1 from './customs/inputType1';
-import Profile from '@/app/profile/page';
-import { Carrot } from 'lucide-react';
 
 const LoginForm = () => {
 
@@ -50,7 +48,7 @@ const LoginForm = () => {
 
         <br />
         <br />
-        <h2 className="text-slate-500 text-[14px]"> Don't have an account?   <Link href="/signup" className="text-blue-500">Signup</Link>  </h2>
+        <h2 className="text-slate-500 text-[14px]"> Don&apos;t have an account?   <Link href="/signup" className="text-blue-500">Signup</Link>  </h2>
         
         
 

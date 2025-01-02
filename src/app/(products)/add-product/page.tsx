@@ -1,23 +1,11 @@
-"use client"
-import React, { useEffect } from 'react'
-import { useUser } from '@/hooks/useUser'
-import { useRouter } from 'next/navigation';
+import React from 'react'
 
-const AddProduct = () => {
-
-    const { user, isLoading, userDetails } = useUser();
-        const router = useRouter();
+const page = () => {
+  return (
+    <div className='w-full h-[calc(100vh-80px)] bg-transparent'>
         
-        useEffect(() => {
-            if(!isLoading && !user && !userDetails) {
-                router.replace('/login')
-            }
-        }, [isLoading, user, router, userDetails]);
-        //////////////////////////////////////////////////////////////////////////////////
-
-    return (
-        <div>Add Products</div>
-    )
+    </div>
+  )
 }
 
-export default AddProduct
+export default page;

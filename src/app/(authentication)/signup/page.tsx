@@ -2,7 +2,7 @@ import React from 'react'
 import SignUpForm from '@/components/SignUpForm';
 
 function Signup() {
-
+    
     return (
     <div className="main h-[90.5vh] flex">
         <div className="relative left h-full w-[70%] bg-center bg-contain" style={{backgroundImage:`url(/images/boo-signup.png)` , opacity:0.1}}></div>

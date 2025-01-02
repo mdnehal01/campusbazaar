@@ -32,11 +32,6 @@ function Nav() {
     };
   }, []);
 
-  const handleSignOut = async () => {
-    await signOut();
-    setIsLoggedIn(false); // Reset state after signing out
-  };
-
   return (
     <div className="h-20 md:px-10 px-4 w-full bg-white/50 font-semibold text-slate-600">
       <div className="nav-items rounded-md h-full w-full flex items-center justify-between">
