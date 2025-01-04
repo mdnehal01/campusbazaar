@@ -3,13 +3,12 @@ import React from 'react'
 
 const HowToSell = () => {
   return (
-    <div className='px-20 py-10 bg-red-100 h-80'>How to sell
-      <div className='flex gap-10 px-10'>
-        {/* <div> <Image src={campusbazaar/public/sectionA/1.png} /> </div> */}
-
-        {/* images are in /public/sectionA */}
-        <div></div>
-        <div></div>
+    <div className='px-20 py-10 '>
+      <h1 className='text-5xl text-blue-900 font-semibold text-center font-sans'> How to sell </h1>
+      <div className='flex h-[70vh] justify-evenly items-center'>
+        <div> <Image src="/sectionA/1.png" alt="img 1" height={400} width={400}/> </div>
+        <div> <Image src="/sectionA/2.png" alt="img 1" height={400} width={400}/> </div>
+        <div> <Image src="/sectionA/3.png" alt="img 1" height={400} width={400}/> </div>
       </div>
     </div>
   )

@@ -7,18 +7,20 @@ import HowToSell from "@/components/howToSell";
 export default function Home() {
   return (
     <div className="h-auto w-full">
+      {/* hero section on LANDING PAGE*/}
       <Hero/>
-      <BuyOrSell/>
-      
 
-      <div className="bg-slate-200 py-10">
+      <div className="bg-slate-200 py-12">
         <h1 className='text-2xl font-bold font-sans text-slate-500 mx-20'>Categories to Sell & Buy from</h1>
         <CategorySec/>
       </div>
+
+      <BuyOrSell/>
       
       <div className="howToSell">
         <HowToSell />
       </div>
+
     </div>
   );
 }
