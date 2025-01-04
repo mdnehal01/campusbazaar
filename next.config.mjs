@@ -3,7 +3,8 @@ const nextConfig = {
     images:{
         domains:[
             "kezskricfbuksihuhhqt.supabase.co",
-            "storage.googleapis.com"
+            "storage.googleapis.com",
+            "5.imimg.com"
         ]
     }
 };

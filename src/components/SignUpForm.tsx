@@ -8,6 +8,9 @@ import toast from 'react-hot-toast';
 //     message?:string;
 // }
 
+// TODO: Make use of this card
+import PasswordValidationCard from './PasswordValidationCard';
+
 const SignUpForm= () => {
 
     // TODO:Insha: go to login/page.tsx and jaise jaise use state wala waha hua hai mtlb ki form me data change karo to state bhi change hogi waise karo
