@@ -5,7 +5,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
-import toast from "react-hot-toast";
 import category from "@/data/category";
 import { useState } from "react";
 import { sendSelected } from "./CategoryBtn";
