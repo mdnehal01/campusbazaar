@@ -7,9 +7,12 @@ import signOut from "@/actions/signOut";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { DropDownOptions } from "./dropOptions";
+import { useRouter } from "next/navigation";
 
 function Nav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const router=useRouter();
 
   useEffect(() => {
     const checkUserSession = async () => {
@@ -65,16 +68,23 @@ function Nav() {
             </Link>
           ) : (
             <>
-              <div className="nav-cart md:w-50 bg-[#EBF0FE] md:px-5 md:py-2 px-2 py-2 rounded-3xl flex gap-2">
-                <CgShoppingCart className="cursor-pointer" size={23} />{" "}
-                <span className="lg:flex hidden">Cart</span>
+              <div 
+                onClick={()=>{
+                  router.push("/cart");
+                }} 
+                className="cursor-pointer nav-cart md:w-50 bg-[#EBF0FE] md:px-5 md:py-2 px-2 py-2 rounded-3xl flex gap-2">
+
+                <CgShoppingCart size={23} />{" "}
+                {/* <span className="lg:flex hidden" >Cart</span> */}
               </div>
+
               {/* <div
                 onClick={handleSignOut}
                 className="cursor-pointer bg-blue-main nav-cart md:w-50 md:px-5 md:py-2 px-2 py-2 rounded-3xl flex gap-2"
               >
                 Sign Out
               </div> */}
+              
               <DropDownOptions/>
             </>
           )}
