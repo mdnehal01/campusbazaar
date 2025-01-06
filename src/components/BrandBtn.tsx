@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import ButtonType1 from './customs/buttontype1';
-import Categories from './Categories';
+import Brands from './Brands';
 
 let selectedBrand = "Choose a brand"
 export const sendSelected = (selected:string) =>{
@@ -22,7 +22,7 @@ const BrandBtn = () => {
       >
         {selectedBrand}
       </ButtonType1>
-      <Categories open={brandDialogOpen} onClose={() => setBrandDialogOpen(false)} />
+      <Brands open={brandDialogOpen} onClose={() => setBrandDialogOpen(false)} />
     </div>
   );
 };

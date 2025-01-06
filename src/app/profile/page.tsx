@@ -11,7 +11,7 @@ const Profile = () => {
     // The page will automatically redirected to "login" page automatically //////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
 
-    const { user, isLoading, userDetails } = useUser();
+    const { user, isLoading } = useUser();
     const router = useRouter();
     
     useEffect(() => {
