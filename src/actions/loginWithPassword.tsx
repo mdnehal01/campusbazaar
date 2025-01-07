@@ -1,7 +1,8 @@
 import { supabase } from "@/lib/supabase";
 import toast from "react-hot-toast";
 
-const loginWithPassword = async (email: string, password: string, router: any) => {
+// TODO: Insha: Add and extra parameter so that path is
+const loginWithPassword = async (email: string, password: string, router: any, redirectTo: string|any) => {
   try {
     // Check if the email exists
     const { data: userExists, error: emailCheckError } = await supabase
@@ -37,7 +38,7 @@ const loginWithPassword = async (email: string, password: string, router: any) =
 
     // If login is successful
     toast.success("Logged in successfully!");
-    router.push("/"); // Redirect to homepage or desired route
+    router.push(redirectTo || "/"); // Redirect to the desired path or default to home
   } catch (error) {
     console.error("Unexpected error:", error);
     toast.error("An unexpected error occurred.");

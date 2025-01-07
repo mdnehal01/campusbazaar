@@ -1,13 +1,16 @@
 "use client"
 import loginWithPassword from '@/actions/loginWithPassword';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useState } from 'react'
 
 const LoginForm = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const searchParams = useSearchParams();
+    const redirectTo = searchParams.get("redirectTo"); // Get redirectTo from query
 
     const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
@@ -20,7 +23,8 @@ const LoginForm = () => {
     const router = useRouter();
 
     const login = async () => {
-        loginWithPassword(email, password, router);
+    
+        loginWithPassword(email, password, router, redirectTo);
     } 
 
 
