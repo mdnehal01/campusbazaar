@@ -25,7 +25,7 @@ const Categories: React.FC<CategoriesProps> = ({ open, onClose }) => {
   };
 
   return (
-    <div className="overflow-y-auto w-[calc(100%-100px)] h-[calc(100%-100px)] p-10 backdrop-blur-lg rounded-3xl absolute top-1/2 left-1/2 -translate-y-1/2 shadow-md -translate-x-1/2 bg-slate-100">
+    <div className="overflow-y-auto w-[calc(100%-100px)] h-[calc(100%-100px)] p-10 backdrop-blur-lg rounded-3xl absolute top-1/2 left-1/2 z-50 -translate-y-1/2 shadow-md -translate-x-1/2 bg-slate-100">
       <Accordion type="single" collapsible className="w-full">
         {Object.keys(category).map((mainCategoryKey) => {
           // @ts-expect-error type any

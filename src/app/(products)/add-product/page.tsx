@@ -1,8 +1,7 @@
 // import Sidebar from '@/components/sidebar';
-import BrandBtn from '@/components/BrandBtn';
-import CategoryBtn from '@/components/CategoryBtn';
-import Image from 'next/image';
-import React from 'react'
+
+import ProductAddForm from '@/components/ProductAddForm';
+// import Image from 'next/image';
 import { CgCheck, CgClose } from 'react-icons/cg';
 
 const page = () => {
@@ -17,11 +16,9 @@ const page = () => {
               <div className='flex items-center'><CgClose color='red' size={20}/> <h1>No hidden charges</h1></div>
             </div>
             <br />
-            <CategoryBtn/>
-            <br />
-            <BrandBtn/>
 
-            <Image src={"/logo/brands/cart.png"} alt='cart' width={200} height={300}/>
+            <ProductAddForm/>
+
           </div>
         </div>
   )

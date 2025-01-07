@@ -12,7 +12,7 @@ export const sendSelected = (selected:string) =>{
     // @ts-expect-error let it be
     selectedCategory = selected.split("-").pop()?.toString();
     if(selectedCategory == "Jeans" || 
-      selectedCategory == "Blouse" || 
+      selectedCategory == "Blouses" || 
       selectedCategory == "Shirt" || 
       selectedCategory == "Jackets" ||
       selectedCategory == "Jeans & Pants"
