@@ -7,7 +7,7 @@ import {
 import Image from "next/image";
 import category from "@/data/category";
 import { useState } from "react";
-import { sendSelected } from "./CategoryBtn";
+import { sendSelected } from "./ProductAddForm"; 
 
 interface CategoriesProps {
   open: boolean;
