@@ -132,12 +132,20 @@ const category = {
     },
 
     "Home & Kitchen": {
-        titleMain:"Home & Kitchen",
+        titleMain:"Home",
         "Home Decor": {
             titleSub: "Home Decor",
             "Wall Decor & Clocks": {
                 titleSubSub: "Wall Decor & Clocks",
                 imgLink: "/images/women/ethinic/saree.webp" 
+            }
+        },
+
+        "Kitchen": {
+            titleSub: "Kitchen",
+            "Kettle": {
+                titleSubSub: "Kettle",
+                imgLink: "/images/homeDecor/kettle.webp" 
             }
         }
     },
@@ -151,7 +159,7 @@ const category = {
                 imgLink: "/images/women/ethinic/saree.webp" 
             }
         },
-    }
+    },
 }
 
 

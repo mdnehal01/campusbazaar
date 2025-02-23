@@ -1,6 +1,7 @@
 "use client"
 import { supabase } from "@/lib/supabase";
 import { uploadToGoogle } from "./uploadToGoogle";
+import { Products } from "@/types";
 
 
 export const UploadProduct = async (form: FormData) => {
@@ -24,9 +25,12 @@ export const UploadProduct = async (form: FormData) => {
         // DONE: user will be called the username who is logged in or userID who is uploading 
         const userId = form.get('userId');
 
-        const finalFileName = `uid-${userId}/${category}/${file.name}`
+        const finalFileName = `uid-${userId}/${category}/primary-${file.name}`
 
-        const imagePath = encodeURI(`https://storage.googleapis.com/campus-bazaar/${finalFileName}`)
+        const imagePathPrimary = encodeURI(`https://storage.googleapis.com/campus-bazaar/${finalFileName}`)
+        const imagePathSecLeft = encodeURI(`https://storage.googleapis.com/campus-bazaar/left-${finalFileName}`)
+        const imagePathSecRight = encodeURI(`https://storage.googleapis.com/campus-bazaar/right-${finalFileName}`)
+        const imagePathSecBack = encodeURI(`https://storage.googleapis.com/campus-bazaar/back-${finalFileName}`)
 
         const {data, error} = await supabase
             .from('products')
@@ -36,7 +40,7 @@ export const UploadProduct = async (form: FormData) => {
                 'price':price, 
                 'description':description, 
                 'condition': condition, 
-                'image_urls':{primary: imagePath}, 
+                'image_urls':{primary: imagePathPrimary, secondaryLeft:imagePathSecLeft, secondaryRight:imagePathSecRight, secondaryBack:imagePathSecBack}, 
                 'size':size,
                 'defect': defect, 
                 'category':category,

@@ -1,9 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { BiMenu, BiMoon, BiSun } from "react-icons/bi";
+import { BiMenu } from "react-icons/bi";
 import { CgShoppingCart } from "react-icons/cg";
 import { NavigationMenuDemo } from "./navMenu";
-import signOut from "@/actions/signOut";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { DropDownOptions } from "./dropOptions";
@@ -30,7 +29,7 @@ function Nav() {
     });
 
     return () => {
-      // @ts-ignore
+      // @ts-expect-error abc
       listener?.unsubscribe();
     };
   }, []);

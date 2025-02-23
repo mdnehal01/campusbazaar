@@ -94,7 +94,7 @@ const ProductAddForm = () => {
         setLoader(true)
     }
     return (
-        <form className='relative flex flex-col gap-y-2' action={UploadProduct}>
+        <form className='flex flex-col gap-y-2' action={UploadProduct}>
             {/* <CategoryBtn/> */}
             <InputType1 onChange={handleTitleChange} name='title' value={title} needIcon={false} placeholder='Name of the product' title='Name of the product'  className='w-64 h-10 mb-2 focus:border-blue-300'/>
 
@@ -179,7 +179,7 @@ const ProductAddForm = () => {
             <InputType1 onChange={handleDefectChange} name='defect' value={defect} needIcon={false} placeholder='Specify any defect' className='w-64 h-10 mb-2 focus:border-blue-300'/>
 
 
-            <ButtonType1 className='bg-pink-900 rounded-md w-40 text-white absolute -bottom-20 -right-5' type='submit' onClick={adding}>Add</ButtonType1>
+            <ButtonType1 className='bg-pink-900 rounded-md w-40 text-white' type='submit' onClick={adding}>Add</ButtonType1>
       </form>
     )
 }
