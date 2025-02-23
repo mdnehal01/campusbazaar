@@ -40,3 +40,32 @@
     background-color: rgb(14, 14, 14);
   }
   
+
+/* From Uiverse.io by PriyanshuGupta28 */ 
+.rating {
+  display: flex;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  float: right;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.rating label:before {
+  content: '\2605';
+  font-size: 30px;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: #c40082;
+  transition: color 0.3s;
+}
+
