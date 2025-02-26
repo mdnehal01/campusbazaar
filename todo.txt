@@ -1,3 +1,13 @@
 Theme : https://uiverse.io/Pradeepsaranbishnoi/strong-treefrog-90
 
 LIST Products (apna product list ya unlist kar sako even after uploading)
+
+
+Buy card: Default White
+
+
+ADD: Listing and Unlisting of product
+
+Listed product: Green 
+
+Unlisted Products : RED
