@@ -44,41 +44,34 @@ export function DropDownOptions() {
           </DropdownMenuItem>
 
           <DropdownMenuItem>
-            Billing
-            
-          </DropdownMenuItem>
-          <DropdownMenuItem>
             Settings
-            
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            Keyboard shortcuts
-           
-          </DropdownMenuItem>
+          
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>Team</DropdownMenuItem>
+          
           <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
+            <DropdownMenuSubTrigger>Invite friends</DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem>Email</DropdownMenuItem>
-                <DropdownMenuItem>Message</DropdownMenuItem>
+                <DropdownMenuItem>via Whatsapp</DropdownMenuItem>
+                <DropdownMenuItem>via Link</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>More...</DropdownMenuItem>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
-          <DropdownMenuItem>
-            New Team
-            <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+          <DropdownMenuItem onClick={()=>router.push("/report-bugs")}>
+            Report Bugs
+            <DropdownMenuShortcut>🪲</DropdownMenuShortcut>
           </DropdownMenuItem>
+          <DropdownMenuItem>About Us</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>GitHub</DropdownMenuItem>
-        <DropdownMenuItem>Support</DropdownMenuItem>
-        <DropdownMenuItem disabled>API</DropdownMenuItem>
+        
+        
+        
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={signOut}>
           Log out
