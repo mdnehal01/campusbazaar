@@ -1,3 +1,4 @@
+import reportBugSubmit from '@/actions/reportBugSubmit';
 import InputType1 from '@/components/customs/inputType1'
 import React from 'react'
 
@@ -30,17 +31,22 @@ function page() {
 
             <div className="reportBugForm w-[40%] mx-[2%]">
                 <h1 className="font-bold text-blue-900 font-sans text-4xl m-[5%]">Report Bugs Form</h1>
-                <form action="" className='flex flex-col gap-y-4 '>
+                <form action={reportBugSubmit} className='flex flex-col gap-y-4 '>
                 
-                    <input type="text" placeholder="Title" className={inputClass} required />
-                    <input type="text" placeholder="Environment  (Mobile/Desktop)" className={inputClass} required />
-                    <input type="text" placeholder="Reproduce" className={inputClass} required/>
-                    <input type="text" placeholder="Expected Result" className={inputClass} required/>
-                    <input type="text" placeholder="Actual Result" className={inputClass} required/>
-                    <input type="text" placeholder="Severity" className={inputClass} required/>
-                    <br/>
+                    <input type="text" name="title" placeholder="Title" className={inputClass} required />
+                    <input type="text" name="environment" placeholder="Environment  (Mobile/Desktop)" className={inputClass} required />
+                    <input type="text" name="reproduce" placeholder="Reproduce" className={inputClass} required/>
+                    <input type="text" name="expectedres" placeholder="Expected Result" className={inputClass} required/>
+                    <input type="text" name="actualres" placeholder="Actual Result" className={inputClass} required/>
+                    {/* <input type="text" name="severity" placeholder="Severity" className={inputClass} required/> */}
+                    <select name="severity" className={inputClass} defaultValue={"minor"} required> 
+                        <option value="High/Critical">High/Critical</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Minor">Minor</option>
+                    </select>
                     <input type="file" name="reportedBugs" />
-
+                    <button type="submit" className="bg-blue-400 rounded-xl p-2 text-white w-40"> SUBMIT </button>
+                
                 </form>
             </div>
 
