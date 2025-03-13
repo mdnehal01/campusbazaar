@@ -20,7 +20,7 @@ const InputType1 = forwardRef<HTMLInputElement, InputType1Props>(({
     ...props
 }, ref) => {
     return (
-        <div className="relative">
+        <div className="relative w-fit">
         <input type={type}
             className={twMerge(`
                     flex
@@ -48,7 +48,7 @@ const InputType1 = forwardRef<HTMLInputElement, InputType1Props>(({
         />
 
         {needIcon && (
-            <div className={`cursor-pointer w-9 h-9 rounded-full bg-slate-500 ${iconbg} grid place-items-center shadow-md absolute top-[50%] -translate-y-[50%] right-[1%]`} onClick={onclick}>
+            <div className={`cursor-pointer w-9 h-9 rounded-full bg-slate-500 ${iconbg} grid place-items-center  absolute top-[50%] -translate-y-[50%] right-[1%]`} onClick={onclick}>
                 {icon}
             </div>
         )}

@@ -2,6 +2,7 @@
 import { supabase } from "@/lib/supabase";
 import { uploadToGoogle } from "./uploadToGoogle";
 import { Products } from "@/types";
+import toast from "react-hot-toast";
 
 
 export const UploadProduct = async (form: FormData) => {
@@ -32,6 +33,8 @@ export const UploadProduct = async (form: FormData) => {
         const imagePathSecRight = encodeURI(`https://storage.googleapis.com/campus-bazaar/right-${finalFileName}`)
         const imagePathSecBack = encodeURI(`https://storage.googleapis.com/campus-bazaar/back-${finalFileName}`)
 
+        toast.success("added"+price);
+
         const {data, error} = await supabase
             .from('products')
             .insert({
@@ -50,7 +53,8 @@ export const UploadProduct = async (form: FormData) => {
         if(error){
             console.error("error inserting "+error.message);
         }else{
-            uploadToGoogle(file, finalFileName);
+            toast.success("Uploaded")
+            // uploadToGoogle(file, finalFileName);
         }
 
     } catch (error) {
