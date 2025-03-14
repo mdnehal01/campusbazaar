@@ -38,7 +38,7 @@ export default function RootLayout({
         <SupabaseProvider>
           <UserProvider>
         <Nav/>
-        <Box>
+        <Box className="mt-20">
           {children}
         </Box>
         </UserProvider>

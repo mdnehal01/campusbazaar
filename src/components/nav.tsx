@@ -35,7 +35,7 @@ function Nav() {
   }, []);
 
   return (
-    <div className="h-20 md:px-10 px-4 w-full bg-white/50 font-semibold text-slate-600">
+    <div className="fixed z-[100] top-0 left-0 h-20 md:px-10 px-4 w-full bg-white font-semibold text-slate-600">
       <div className="nav-items rounded-md h-full w-full flex items-center justify-between">
         {/* Logo for PC : NEHAL */}
         <Link
