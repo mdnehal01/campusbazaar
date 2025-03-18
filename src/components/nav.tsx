@@ -40,7 +40,7 @@ function Nav() {
         {/* Logo for PC : NEHAL */}
         <Link
           href="/"
-          className="nav-logo w-50 bg-[#EBF0FE] md:flex hidden px-10 py-2 rounded-3xl"
+          className="nav-logo w-50 bg-[#EBF0FE] md:flex hidden px-10 py-2 rounded-xl"
         >
           Campus Bazaar
         </Link>
@@ -51,7 +51,7 @@ function Nav() {
         </div>
 
         {/* For PC */}
-        <div className="nav-menu w-50 bg-[#EBF0FE] rounded-3xl lg:flex gap-12 hidden">
+        <div className="nav-menu w-50 bg-[#EBF0FE] rounded-xl lg:flex gap-12 hidden">
           <NavigationMenuDemo />
         </div>
 
@@ -61,7 +61,7 @@ function Nav() {
           {!isLoggedIn ? (
             <Link
               href="/login"
-              className="bg-blue-main nav-cart md:w-50 md:px-5 md:py-2 px-2 py-2 rounded-3xl flex gap-2 cursor-pointer"
+              className="bg-blue-main nav-cart md:w-50 md:px-5 md:py-2 px-2 py-2 rounded-xl flex gap-2 cursor-pointer"
             >
               Login
             </Link>
@@ -71,7 +71,7 @@ function Nav() {
                 onClick={()=>{
                   router.push("/cart");
                 }} 
-                className="cursor-pointer nav-cart md:w-50 bg-[#EBF0FE] md:px-5 md:py-2 px-2 py-2 rounded-3xl flex gap-2">
+                className="cursor-pointer nav-cart md:w-50 bg-[#EBF0FE] md:px-5 md:py-2 px-2 py-2 rounded-xl flex gap-2">
 
                 <CgShoppingCart size={23} />{" "}
                 {/* <span className="lg:flex hidden" >Cart</span> */}
@@ -79,7 +79,7 @@ function Nav() {
 
               {/* <div
                 onClick={handleSignOut}
-                className="cursor-pointer bg-blue-main nav-cart md:w-50 md:px-5 md:py-2 px-2 py-2 rounded-3xl flex gap-2"
+                className="cursor-pointer bg-blue-main nav-cart md:w-50 md:px-5 md:py-2 px-2 py-2 rounded-xl flex gap-2"
               >
                 Sign Out
               </div> */}
@@ -89,7 +89,7 @@ function Nav() {
           )}
 
           {/* Mobile Menu */}
-          <div className="nav-menu p-2 bg-[#EBF0FE] rounded-3xl flex gap-12 lg:hidden">
+          <div className="nav-menu p-2 bg-[#EBF0FE] rounded-xl flex gap-12 lg:hidden">
             <BiMenu className="text-black" size={25} />
           </div>
         </div>
