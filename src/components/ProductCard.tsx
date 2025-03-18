@@ -3,6 +3,8 @@ import React from 'react'
 import "./css/ProductCard.css"
 import Image from 'next/image'
 import { Products } from '@/types'
+import useLoadImage from '@/hooks/useLoadImage'
+import toast from 'react-hot-toast'
 
 interface ProductCardProps{
   product:Products
@@ -12,13 +14,18 @@ const ProductCard:React.FC<ProductCardProps>= (
   {product}
 ) => {
 
+  const imageUrls = useLoadImage(product);
+
     return (
 
 <div className="card bg-pink-50 border border-pink-800">
   {/* TODO:IMAGE CONTAINER will be a slideshow afterwards when we open the product here only primary  */}
   <div className="image_container border ">
-    <Image src={product.image_urls.primary} alt={product.title} width={200} height={100}/>
+    <Image src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/product-image/${product.image_urls.primary}`} alt={product.image_urls.primary} width={200} height={100}/>
   </div>
+    
+  {p}
+
   <div className="title">
     <span>{product.title}</span>
   </div>
@@ -57,6 +64,7 @@ const ProductCard:React.FC<ProductCardProps>= (
       <span>Add to cart</span>
     </button>
   </div>
+  {imageUrls}
 </div>
 
     )

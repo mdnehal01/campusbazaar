@@ -9,6 +9,7 @@ import { useUser } from '@/hooks/useUser'
 import { BiRupee, BiSolidCameraPlus } from 'react-icons/bi'
 import { usePathname, useRouter } from 'next/navigation'
 import "./css/loader.css"
+import Image from 'next/image'
 
 let selectedCategory = "Choose a category"
 let disp = "hidden";
@@ -83,7 +84,7 @@ const ProductAddForm = () => {
     
     const toggleDialog = () => setCategoryDialogOpen((prev) => !prev);
 
-    const [imagePreview, setImagePreview] = useState<string | null>(null);
+    const [imagePreview, setImagePreview] = useState<string | null>();
 
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0]; // Get the selected file

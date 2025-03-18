@@ -18,7 +18,7 @@ const ProductContent = () => {
                     setProducts(data);
                 }
             } catch (error) {
-                toast.error("Failed to fetch products");
+                toast.error(`Failed to fetch products message ${error}`);
             } finally {
                 setLoading(false);
             }
