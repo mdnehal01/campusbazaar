@@ -1,14 +1,15 @@
-"use client"
 import { supabase } from "@/lib/supabase";
-import { uploadToGoogle } from "./uploadToGoogle";
+// import { uploadToGoogle } from "./uploadToGoogle";
 import { Products } from "@/types";
 import toast from "react-hot-toast";
-import uploadImgSupabase from "./uploadImgSupabase";
+// import uploadImgSupabase from "./uploadImgSupabase";
+// @ts-expect-error "YES"
 import uniqid from "uniqid";
-import { redirect } from "next/navigation";
 
 
-export const UploadProduct = async (form: FormData) => {
+
+export const UploadProduct = async (form: FormData, router: any) => {
+
     try {
 
         const user = await supabase.auth.getSession()
@@ -33,14 +34,6 @@ export const UploadProduct = async (form: FormData) => {
         // DONE: user will be called the username who is logged in or userID who is uploading 
         const userId = form.get('userId');
         const uniqueID = uniqid();
-        const finalFileName = `uid-${userId}/${category}/primary-${file.name}`
-
-        const imagePathPrimary = encodeURI(`https://storage.googleapis.com/campus-bazaar/${finalFileName}`)
-        const imagePathSecLeft = encodeURI(`https://storage.googleapis.com/campus-bazaar/left-${finalFileName}`)
-        const imagePathSecRight = encodeURI(`https://storage.googleapis.com/campus-bazaar/right-${finalFileName}`)
-        const imagePathSecBack = encodeURI(`https://storage.googleapis.com/campus-bazaar/back-${finalFileName}`)
-
-        toast.success("added"+price);
 
         // FIRST UPLOAD FILE TO SUPABASE
         const {data:imgData, error:imgError} = await supabase.storage
@@ -60,7 +53,7 @@ export const UploadProduct = async (form: FormData) => {
                 'price':price, 
                 'description':description, 
                 'condition': condition, 
-                'image_urls':{primary: imgData?.fullPath, secondaryLeft:"NOT RIGHT NOW", secondaryRight:imagePathSecRight, secondaryBack:imagePathSecBack}, 
+                'image_urls':{primary: imgData?.fullPath, secondaryLeft:"NOT RIGHT NOW", secondaryRight:"NA", secondaryBack:"NA"}, 
                 'size':size,
                 'defect': defect, 
                 'category':category,
@@ -70,8 +63,8 @@ export const UploadProduct = async (form: FormData) => {
         if(error){
             console.error("error inserting "+error.message);
         }else{
-            toast.success("Uploaded")
-            redirect("/my-uploads")
+            toast.success("DONE")
+            router.push("/my-uploads")
         }
         }else{
             toast.error(imgError.message);

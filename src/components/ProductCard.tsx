@@ -21,10 +21,8 @@ const ProductCard:React.FC<ProductCardProps>= (
 <div className="card bg-pink-50 border border-pink-800">
   {/* TODO:IMAGE CONTAINER will be a slideshow afterwards when we open the product here only primary  */}
   <div className="image_container border ">
-    <Image src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/product-image/${product.image_urls.primary}`} alt={product.image_urls.primary} width={200} height={100}/>
+    <Image src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/${product.image_urls.primary}`} alt={product.image_urls.primary} width={200} height={100}/>
   </div>
-    
-  {p}
 
   <div className="title">
     <span>{product.title}</span>
@@ -43,8 +41,8 @@ const ProductCard:React.FC<ProductCardProps>= (
   )}
 
   <div className="action">
-    <div className="price">
-      <span>$299</span>
+    <div>
+      <span className='font-medium text-black text-md'>{product.price}</span>
     </div>
     <button className="cart-button">
       <svg
@@ -64,7 +62,6 @@ const ProductCard:React.FC<ProductCardProps>= (
       <span>Add to cart</span>
     </button>
   </div>
-  {imageUrls}
 </div>
 
     )

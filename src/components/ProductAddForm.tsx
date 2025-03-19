@@ -108,8 +108,15 @@ const ProductAddForm = () => {
         setNextDisp("hidden");
     }
 
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault(); // Prevent default form submission
+    
+        const formData = new FormData(event.currentTarget); // Get form data
+        await UploadProduct(formData, router); // Call UploadProduct with form data and router
+      };
+
     return (
-        <form action={UploadProduct}>
+        <form onSubmit={handleSubmit}>
 
             {isLoading && (
                 <div className='absolute z-10 gap-y-10 h-full w-full top-0 left-0 bg-pink-800 flex flex-col items-center justify-center'>

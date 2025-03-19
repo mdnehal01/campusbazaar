@@ -24,8 +24,12 @@ const Categories: React.FC<CategoriesProps> = ({ open, onClose }) => {
     setSelectedCategory(uniqueKey);
   };
 
+  const handleOthersValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedCategory(event.target.value);
+  }
+
   return (
-    <div className="overflow-y-auto w-[calc(100%-100px)] h-[calc(100%-100px)] p-10 backdrop-blur-lg rounded-3xl absolute top-1/2 left-1/2 z-50 -translate-y-1/2 shadow-md -translate-x-1/2 bg-slate-100">
+    <div className="mt-[50px]  overflow-y-auto w-[calc(100%-100px)] h-[calc(100%-150px)] p-10 backdrop-blur-lg rounded-3xl absolute top-1/2 left-1/2 z-50 -translate-y-1/2 shadow-md -translate-x-1/2 bg-slate-100">
       <Accordion type="single" collapsible className="w-full">
         {Object.keys(category).map((mainCategoryKey) => {
           // @ts-expect-error type any
@@ -73,10 +77,25 @@ const Categories: React.FC<CategoriesProps> = ({ open, onClose }) => {
                   );
                 })}
               </AccordionContent>
+          
+              
             </AccordionItem>
+            
           );
         })}
       </Accordion>
+      
+      <Accordion type="single" collapsible className="w-full">
+        <AccordionItem className="pb-9 pt-2" value="OtherValue" key="Others">
+          <AccordionTrigger className="text-lg">
+            Others?
+          </AccordionTrigger>
+          <AccordionContent>
+            <input type="text" onChange={handleOthersValue}/>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+      
 
       <div className="fixed bottom-10 right-12 flex gap-x-5">
         <button

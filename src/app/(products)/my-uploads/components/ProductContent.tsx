@@ -5,6 +5,7 @@ import ProductCard from '@/components/ProductCard'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import ProductsBox from './Products';
+import TruckLoader from '@/components/loader';
 
 const ProductContent = () => {
     const [products, setProducts] = useState<any[]>([]);
@@ -34,7 +35,7 @@ const ProductContent = () => {
             </h1>
             {loading ? (
                 // TODO: use LOADER animation here or skeleton
-                <>Loading...</>
+                <TruckLoader/>
             ) : (
                 <ProductsBox products={products}/>
             )}
