@@ -94,3 +94,67 @@ Buy Aquatic Plants & Aquarium Fish online
 ￼
 Campus Bazaar
 
+GEMINI:
+1. based on description, photo, defect: rate the item & give stars or (Excellent, fair, poor)
+2. Sustainability score/ carbon reduction/ waste reduced impact etc.
+3. A suggested price range based on market trends within your platform or external data, ensuring fair pricing and encouraging sales.
+4. This semester, we saved 500 kg of waste!" reflect on HOME 
+5. Create a new column in products table: WEIGHT/CARBON/ETC., so that we display semester end results on home page
+
+FUTURE:
+1. Award badges (e.g., "Green Champion") based on cumulative sustainability scores from the API.
+
+
+CATEGORIES:
+
+1. Clothing
+Women
+Ethnic: Sarees, Blouses, Kurtas
+Western: Jeans, Tops, Dresses
+Jewellery: Necklaces, Earrings
+Men
+T-Shirts & Shirts
+Sweats & Hoodies
+Jeans & Pants
+Shorts
+Coats & Jackets
+Suits & Blazers
+Unisex
+Outerwear (e.g., jackets, scarves)
+Activewear (e.g., gym clothes, yoga mats)
+
+2. Books & Stationery
+Textbooks (by subject or year)
+Novels & Magazines
+Notebooks & Planners
+Art Supplies (e.g., sketchbooks, paints)
+
+3. Home & Living
+Furniture: Chairs, Tables, Beds
+Kitchenware: Cookware, Utensils, Appliances
+Decor: Lamps, Rugs, Posters
+Bedding: Mattresses, Pillows, Sheets
+
+4. Electronics & Gadgets
+Laptops & Accessories
+Phones & Chargers
+Audio: Headphones, Speakers
+Gaming: Consoles, Controllers
+
+5. Beauty & Personal Care
+Skincare: Moisturizers, Cleansers
+Haircare: Shampoos, Hair Tools
+Makeup: Lipsticks, Brushes
+Hygiene: Toothbrushes, Towels
+6. Sports & Outdoor Gear
+Fitness Equipment: Dumbbells, Yoga Mats
+Sports Gear: Balls, Rackets
+Camping: Tents, Sleeping Bags
+7. Sustainable & Eco-Friendly
+Reusable Items: Water Bottles, Bags
+Upcycled Products: Handmade goods, Refurbished items
+Organic Goods: Natural soaps, bamboo products
+8. Miscellaneous
+Musical Instruments: Guitars, Keyboards
+Pet Supplies: Leashes, Beds
+Party Supplies: Decorations, Costumes

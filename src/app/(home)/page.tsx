@@ -16,7 +16,7 @@ export default function Home() {
         <CategorySec/>
       </div>
 
-
+      
       <div className="bg-white py-12">
         <h1 className='text-2xl font-bold font-sans text-slate-500 mx-20'>What should we do today?</h1>
         <BuyOrSell/>
