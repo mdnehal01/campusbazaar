@@ -3,8 +3,8 @@ import React from 'react'
 import "./css/ProductCard.css"
 import Image from 'next/image'
 import { Products } from '@/types'
-import useLoadImage from '@/hooks/useLoadImage'
-import toast from 'react-hot-toast'
+// import useLoadImage from '@/hooks/useLoadImage'
+// import toast from 'react-hot-toast'
 import AddToCartBtn from '@/app/(products)/products/components/AddToCartBtn'
 import addToCartFn from '@/actions/addToCartFn'
 
@@ -16,7 +16,7 @@ const ProductCard:React.FC<ProductCardProps>= (
   {product}
 ) => {
 
-  const imageUrls = useLoadImage(product);
+  // const imageUrls = useLoadImage(product);
 
     return (
 

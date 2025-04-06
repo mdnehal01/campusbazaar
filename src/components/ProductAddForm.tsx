@@ -9,7 +9,6 @@ import { useUser } from '@/hooks/useUser'
 import { BiRupee, BiSolidCameraPlus } from 'react-icons/bi'
 import { usePathname, useRouter } from 'next/navigation'
 import "./css/loader.css"
-import Image from 'next/image'
 
 let selectedCategory = "Choose a category"
 let disp = "hidden";

@@ -66,6 +66,7 @@ export const UploadProduct = async (form: FormData, router: any) => {
         }else{
             toast.success("DONE")
             router.push("/my-uploads")
+            return data;
         }
         }else{
             toast.error(imgError.message);

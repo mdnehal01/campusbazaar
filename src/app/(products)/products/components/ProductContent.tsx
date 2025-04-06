@@ -1,7 +1,4 @@
 "use client";
-
-import { getMyProducts } from '@/actions/getMyProducts';
-import ProductCard from '@/components/ProductCard'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import ProductsBox from './Products';
@@ -19,7 +16,7 @@ const ProductContent = () => {
                     setProducts(data);
                 }
             } catch (error) {
-                toast.error("Failed to fetch products");
+                toast.error("Failed to fetch products"+error);
             } finally {
                 setLoading(false);
             }
