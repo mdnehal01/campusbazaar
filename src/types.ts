@@ -17,6 +17,7 @@ export interface Products{
     category:string;
     brand:string;
     price:number;
+    current_price:number;
     description:string;
     created_at:string;
     image_urls:{

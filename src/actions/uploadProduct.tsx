@@ -57,7 +57,8 @@ export const UploadProduct = async (form: FormData, router: any) => {
                 'size':size,
                 'defect': defect, 
                 'category':category,
-                'seller':userId
+                'seller':userId,
+                'current_price': price
             }).single();
 
         if(error){
