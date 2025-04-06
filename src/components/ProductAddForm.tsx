@@ -116,6 +116,7 @@ const ProductAddForm = () => {
       };
 
     return (
+        // TODO: Allow COD or not checkbox
         <form onSubmit={handleSubmit}>
 
             {isLoading && (
