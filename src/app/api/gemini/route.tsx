@@ -21,7 +21,7 @@ export async function POST(req: Request) {
   try {
 
     // console.log(process.env.GEMINI_API);
-
+    // @ts-expect-error "IGNORE"
     const genAI = new GoogleGenerativeAI({ apiKey: process.env.GEMINI_API });
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 

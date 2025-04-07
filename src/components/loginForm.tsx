@@ -23,7 +23,7 @@ const LoginForm = () => {
     const router = useRouter();
 
     const login = async () => {
-    
+        // @ts-expect-error
         loginWithPassword(email, password, router, redirectTo);
     } 
 

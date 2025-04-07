@@ -15,7 +15,7 @@ function page() {
             <ul className='list-disc'>
                 <li> <strong> Title: </strong>Write a brief title for the Bug you are about to report, in less than 15 words </li>
                 <li> <strong> Environment: </strong> On which environment did you notice this bug? Please specify: Desktop/Mobile & OS:Windows/Linux/Android/MacOS etc</li>
-                <li> <strong> Steps to Reproduce the Bug: </strong> Briefly describe the steps you took, so that this bug can be reproduced. <br/> For example: Go to settings > Profile > Log Out </li>
+                <li> <strong> Steps to Reproduce the Bug: </strong> Briefly describe the steps you took, so that this bug can be reproduced. <br/> For example: Go to settings &gt; Profile &gt; Log Out </li>
                 <li> <strong> Expected Result: </strong> What should happen when you trigger the call to action? <br/> Expected: “...the app should not crash.“</li>
                 <li> <strong> Actual Result: </strong> What happened actually, example: “button does not work as expected”</li>
                 <li> <strong>Severity of the Bug: </strong>

@@ -2,6 +2,7 @@ import { supabase } from "@/lib/supabase";
 import toast from "react-hot-toast";
 
 // TODO: Insha: Add and extra parameter so that path is
+
 const loginWithPassword = async (email: string, password: string, router: any, redirectTo: string) => {
   try {
     // Check if the email exists

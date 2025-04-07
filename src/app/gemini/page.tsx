@@ -22,7 +22,7 @@ export default function geminiText() {
         setOutput("Error: " + data.error);
       }
     } catch (error) {
-      setOutput("Error: " + error.message);
+      setOutput("Error: " + error);
     } finally {
       setLoading(false);
     }

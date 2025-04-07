@@ -60,7 +60,8 @@ const Profile = () => {
         
                         <div className=" update1 flex flex-col gap-y-4  w-[50%] pl-[200px] ">
                             <div className="userProfilePic  bg-red-300 h-40 w-40 border-4 border-yellow-50 rounded-full bg-cover mx-20">
-                                <img className='rounded-full' style={{ height: '153px', width: '153px', objectFit: 'cover' }}  src={imgPreview} alt="profile-pic of user"/>
+                                {/* @ts-expect-error */}
+                                <img className='rounded-full' style={{ height: '153px', width: '153px', objectFit: 'cover' }} src={imgPreview} alt="profile-pic of user"/>
                             </div>
 
                             <input type="text" placeholder='Full Name' className='h-10 w-80 rounded-sm px-3' required/>

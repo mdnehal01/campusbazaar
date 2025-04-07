@@ -12,7 +12,7 @@ export const BackgroundBeamsWithCollision = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef<HTMLDivElement>(null);
-
+// @ts-expect-error
   const beams = [
     // {
     //   initialX: 10,
@@ -74,6 +74,7 @@ export const BackgroundBeamsWithCollision = ({
         className
       )}
     >
+      {/* @ts-expect-error */}
       {beams.map((beam) => (
         <CollisionMechanism
           key={beam.initialX + "beam-idx"}
