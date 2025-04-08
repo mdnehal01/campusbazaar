@@ -5,6 +5,7 @@ const nextConfig = {
             "kezskricfbuksihuhhqt.supabase.co",
             "zksekqhntfepyfdfyyxn.supabase.co",
             "storage.googleapis.com",
+            "assets.aceternity.com",
             "5.imimg.com"
         ]
     }

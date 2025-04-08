@@ -1,17 +1,112 @@
-import React from 'react';
+"use client"
+import { useUser } from '@/hooks/useUser';
+import { useSessionContext } from '@supabase/auth-helpers-react';
+import { usePathname, useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import styled from 'styled-components';
 
 export interface AddToCartBtnProps{
-    onclick: ()=> void
+    productId: string;
 }
 
-const AddToCartBtn:React.FC<AddToCartBtnProps> = ({onclick}) => {
+const AddToCartBtn:React.FC<AddToCartBtnProps> = ({productId}) => {
+  const router = useRouter();
+  const { supabaseClient } = useSessionContext();
+  const { user } = useUser();
+
+  const [isAdded, setIsAdded] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(()=>{
+    if(!user?.id){
+      return;
+    }
+
+    const fetchData = async () => {
+      const { data, error } = await supabaseClient
+          .from('cart_products')
+          .select('*')
+          .eq('user_id', user?.id)
+          .eq('product_id', productId)
+          .maybeSingle();
+
+      if (!error && data) {
+          setIsAdded(true);
+      }
+    };
+
+    fetchData();
+
+  }, [productId, supabaseClient, user?.id])
+
+  const handleAddCart = async () => {
+    if (!user) {
+      router.push(`/login?redirectTo=${pathname}`)
+    }
+
+    if (isAdded) {
+        const { error } = await supabaseClient
+            .from('cart_products')
+            .delete()
+            .eq('user_id', user?.id)
+            .eq('product_id', productId);
+
+        if (error) {
+            toast.error(error.message);
+        } else {
+            setIsAdded(false);
+            toast.success('Removed from cart!');
+        }
+    } else {
+        const { data, error: fetchError } = await supabaseClient
+            .from('cart_products')
+            .select('*')
+            .eq('user_id', user?.id)
+            .eq('product_id', productId)
+            .maybeSingle();
+
+        if (fetchError) {
+            toast.error(fetchError.message);
+            return;
+        }
+
+        if (!data) {
+            const { error } = await supabaseClient
+                .from('cart_products')
+                .insert({
+                    product_id: productId,
+                    user_id: user?.id
+                });
+
+            if (error) {
+                toast.error(error.message);
+            } else {
+                setIsAdded(true);
+                toast.success('Added to cart!');
+            }
+        } else {
+            setIsAdded(true);
+        }
+    }
+    router.refresh();
+};
+
   return (
     <StyledWrapper>
-      <button onClick={onclick} type="button" className="button">
-        <span className="button__text">Add Item</span>
-        <span className="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width={24} viewBox="0 0 24 24" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" stroke="currentColor" height={24} fill="none" className="svg"><line y2={19} y1={5} x2={12} x1={12} /><line y2={12} y1={12} x2={19} x1={5} /></svg></span>
-      </button>
+      {isAdded ? (
+    
+        <button onClick={handleAddCart} type="button" className="button rounded hover:bg-white border border-green-600 bg-white flex items-center justify-center">
+            <span className="button__text text-green-600">Added</span>
+            {/* <span className="button__icon rounded bg-white"><svg xmlns="http://www.w3.org/2000/svg" width={24} viewBox="0 0 24 24" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" stroke="currentColor" height={24} fill="none" className="svg"><line y2={12} y1={12} x2={19} x1={5} /></svg></span> */}
+        </button>
+      
+      ):(
+        <button onClick={handleAddCart} type="button" className="button rounded hover:bg-pink-700 border border-pink-800 bg-pink-800">
+          <span className="button__text translate-x-[30px]">Add Item</span>
+          <span className="button__icon rounded bg-pink-800"><svg xmlns="http://www.w3.org/2000/svg" width={24} viewBox="0 0 24 24" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" stroke="currentColor" height={24} fill="none" className="svg"><line y2={19} y1={5} x2={12} x1={12} /><line y2={12} y1={12} x2={19} x1={5} /></svg></span>
+        </button>
+      )}
     </StyledWrapper>
   );
 }
@@ -24,8 +119,6 @@ const StyledWrapper = styled.div`
     cursor: pointer;
     display: flex;
     align-items: center;
-    border: 1px solid #34974d;
-    background-color: #3aa856;
   }
 
   .button, .button__icon, .button__text {
@@ -33,8 +126,6 @@ const StyledWrapper = styled.div`
   }
 
   .button .button__text {
-    transform: translateX(30px);
-    color: #fff;
     font-weight: 600;
   }
 
@@ -43,7 +134,6 @@ const StyledWrapper = styled.div`
     transform: translateX(109px);
     height: 100%;
     width: 39px;
-    background-color: #34974d;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,13 +144,6 @@ const StyledWrapper = styled.div`
     stroke: #fff;
   }
 
-  .button:hover {
-    background: #34974d;
-  }
-
-  .button:hover .button__text {
-    color: transparent;
-  }
 
   .button:hover .button__icon {
     width: 148px;

@@ -14,7 +14,6 @@ const ProductsBox:React.FC<ProductsProps> = ({
         {products.length==0 && (
           <h1>You currently have no items listed for sale. <a className='text-blue-500 underline' href="/add-product">Click here to sell your items.</a></h1>
         )}
-        asdasdas
         {products.map((item) => (
                 <ProductCard2
                     key={item.product_id}
