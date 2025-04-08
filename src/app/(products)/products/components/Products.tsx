@@ -11,7 +11,7 @@ const ProductsBox:React.FC<ProductsProps> = ({
     products
 }) => {
   return (
-    <div className='flex xl:gap-x-6 md:gap-x-4 gap-x-4'>
+    <div className='grid 2xl:grid-cols-7 lg:grid-cols-5 md:grid-cols-4 gap-y-5 grid-cols-3'>
         {products.map((item) => (
                 <ProductCard2
                     key={item.product_id}

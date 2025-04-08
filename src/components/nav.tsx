@@ -7,30 +7,51 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { DropDownOptions } from "./dropOptions";
 import { useRouter } from "next/navigation";
+import getCartProducts from "@/actions/getCartProducts";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useUser } from "@/hooks/useUser";
+import { useCartStore } from "@/hooks/useCartStore";
 
 function Nav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { cartLength, setCartLength } = useCartStore();
+  const supabaseClient = useSupabaseClient();
+  const router = useRouter();
 
-  const router=useRouter();
+  const { user } = useUser();
 
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      if (!user) return;
+  
+      const { data, error } = await supabase
+        .from("cart_products")
+        .select("*")
+        .eq("user_id", user.id);
+  
+      if (data) {
+        setCartLength(data.length); // ✅ update global store
+      }
+    };
+  
+    fetchCartItems();
+  }, [user]);
+
+  // ✅ Session check + auth state listener
   useEffect(() => {
     const checkUserSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
-      setIsLoggedIn(!!session); // Set based on initial session check
+      setIsLoggedIn(!!session);
     };
 
-    // Check initial session
     checkUserSession();
 
-    // Listen for auth state changes
-     // Listen for auth state changes
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setIsLoggedIn(!!session);
     });
 
     return () => {
-      // @ts-expect-error abc
-      listener?.unsubscribe();
+      listener?.subscription?.unsubscribe?.(); // Fix for unsubscribe
     };
   }, []);
 
@@ -57,38 +78,32 @@ function Nav() {
 
         {/* Theme toggle for PC */}
         <div className="nav-theme-cart md:flex gap-5 flex">
-          {/* Conditionally Render Login or SignOut */}
           {!isLoggedIn ? (
-            <Link
-              href="/login"
-              className="bg-blue-main nav-cart md:w-50 md:px-5 md:py-2 px-2 py-2 rounded-xl flex gap-2 cursor-pointer"
-            >
+            <Link href="/login" className="bg-blue-main nav-cart md:w-50 md:px-5 md:py-2 px-2 py-2 rounded-xl flex gap-2 cursor-pointer">
               Login
             </Link>
           ) : (
             <>
-              <div 
-                onClick={()=>{
+              <div
+                onClick={() => {
                   router.push("/cart");
-                }} 
-                className="cursor-pointer nav-cart md:w-50 bg-[#EBF0FE] md:px-5 md:py-2 px-2 py-2 rounded-xl flex gap-2">
-
-                <CgShoppingCart size={23} />{" "}
-                {/* <span className="lg:flex hidden" >Cart</span> */}
+                }}
+                className="cursor-pointer nav-cart md:w-50 bg-[#EBF0FE] md:px-5 md:py-2 px-2 py-2 rounded-xl flex gap-2 relative"
+              >
+                <CgShoppingCart size={23} />
+                
+                {/* ✅ Cart count badge */}
+                {cartLength > 0 && (
+                  <span className="absolute top-[-6px] right-[-6px] bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                    {cartLength}
+                  </span>
+                )}
               </div>
 
-              {/* <div
-                onClick={handleSignOut}
-                className="cursor-pointer bg-blue-main nav-cart md:w-50 md:px-5 md:py-2 px-2 py-2 rounded-xl flex gap-2"
-              >
-                Sign Out
-              </div> */}
-              
-              <DropDownOptions/>
+              <DropDownOptions />
             </>
           )}
 
-          {/* Mobile Menu */}
           <div className="nav-menu p-2 bg-[#EBF0FE] rounded-xl flex gap-12 lg:hidden">
             <BiMenu className="text-black" size={25} />
           </div>

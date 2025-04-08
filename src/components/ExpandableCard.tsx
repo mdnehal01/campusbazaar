@@ -10,6 +10,7 @@ import { useUser } from "@/hooks/useUser";
 import { usePathname, useRouter } from "next/navigation";
 import { SupabaseClient, useSessionContext } from "@supabase/auth-helpers-react";
 import toast from "react-hot-toast";
+import { useCartStore } from "@/hooks/useCartStore";
 
 interface ExpandableCardProps{
   products:Products[];
@@ -29,6 +30,8 @@ export const ExpandableCard:React.FC<ExpandableCardProps> = ({
   const pathname = usePathname();
 
   const { supabaseClient } = useSessionContext();
+
+  const { cartLength, setCartLength } = useCartStore();
 
 
   useEffect(() => {
@@ -63,6 +66,7 @@ export const ExpandableCard:React.FC<ExpandableCardProps> = ({
         if (error) {
             toast.error(error.message);
         } else {
+          setCartLength(Math.max(cartLength - 1, 0));
             toast.success('Removed from cart!');
         }
     router.refresh();
