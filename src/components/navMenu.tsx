@@ -59,16 +59,14 @@ export function NavigationMenuDemo() {
       <NavigationMenuList className="h-auto w-auto">
 
         {/* FOR SELL */}
-        <div className="hover:bg-slate-100 rounded-md">
+        <div className="hover:bg-slate-100 rounde-lg">
         <a href="/products">
             &nbsp; Shop &nbsp;
         </a>
         </div>
 
-
-
         {/* FOR SELL */}
-        <NavigationMenuItem className="hover:bg-slate-100 rounded-md">
+        <NavigationMenuItem className="hover:bg-slate-100 rounded-lg">
           <a href="/add-product">
             &nbsp; Sell &nbsp;
           </a>
