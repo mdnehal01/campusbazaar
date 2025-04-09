@@ -12,7 +12,7 @@ const useLoadImage = (product:Products) => {
     const { data: imageData } = supabaseClient
         .storage
         .from('product-image')
-        .getPublicUrl(product.image_urls.primary);
+        .getPublicUrl(product.image_urls.primary[0]);
 
 
     return imageData.publicUrl;

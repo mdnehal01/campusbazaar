@@ -23,7 +23,7 @@ const ProductCard:React.FC<ProductCardProps>= (
 <div className="card bg-pink-50 border border-pink-800">
   {/* TODO:IMAGE CONTAINER will be a slideshow afterwards when we open the product here only primary  */}
   <div className="h-[50%] image_container border ">
-    <Image src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/${product.image_urls.primary}`} alt={product.image_urls.primary} width={200} height={100}/>
+    <Image src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/${product.image_urls.primary}`} alt={product.title} width={200} height={100}/>
   </div>
   
 
@@ -56,6 +56,7 @@ const ProductCard:React.FC<ProductCardProps>= (
 
     {/* INSHA Design add to cart with functionality */}
     <div>
+      {/* @ts-ignore */}
       <AddToCartBtn onclick={()=>addToCartFn(product.product_id)}/>
     </div>
     
