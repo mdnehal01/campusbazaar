@@ -6,7 +6,8 @@ const nextConfig = {
             "zksekqhntfepyfdfyyxn.supabase.co",
             "storage.googleapis.com",
             "assets.aceternity.com",
-            "5.imimg.com"
+            "5.imimg.com",
+            "m.media-amazon.com"
         ]
     }
 };

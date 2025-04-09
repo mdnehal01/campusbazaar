@@ -1,78 +1,86 @@
 import { supabase } from "@/lib/supabase";
-// import { uploadToGoogle } from "./uploadToGoogle";
-import { Products } from "@/types";
 import toast from "react-hot-toast";
-// import uploadImgSupabase from "./uploadImgSupabase";
 // @ts-expect-error "YES"
 import uniqid from "uniqid";
 
-
-
 export const UploadProduct = async (form: FormData, router: any) => {
+  try {
+    const user = await supabase.auth.getSession();
+    console.log(user);
 
-    try {
+    const category = form.get("category");
+    const size = form.get("size");
+    const brand = form.get("brand");
+    const condition = form.get("condition");
+    const title = form.get("title");
+    const price = form.get("price");
+    const description = form.get("description");
+    const defect = form.get("defect");
+    const userId = form.get("userId");
+    const uniqueID = uniqid();
+    const uploadedPaths: string[] = [];
+    const files = form.getAll("file") as File[];
+console.log("Files received:", files);
 
-        const user = await supabase.auth.getSession()
+if (!files || files.length === 0) {
+  toast.error("No files received.");
+  return;
+}
 
-        console.log(user);
+files.forEach((file, i) => {
+  console.log(`File ${i}:`, file.name, file.type, file.size);
+});
 
-        const category = form.get('category');
-        const size = form.get('size');
-        const brand = form.get('brand');
-        const condition = form.get('condition');
-        const title = form.get('title');
-        const price = form.get('price');
-        const description = form.get('description');
-        const defect = form.get('defect');
-        const file = form.get('file') as File;
 
-        // TODO: Add for file 2 and file 3 any numbers of files
-
-        // const file2 = form.get('file2') as File | null;
-
-        console.log(form)
-        // DONE: user will be called the username who is logged in or userID who is uploading 
-        const userId = form.get('userId');
-        const uniqueID = uniqid();
-
-        // FIRST UPLOAD FILE TO SUPABASE
-        const {data:imgData, error:imgError} = await supabase.storage
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const { data, error } = await supabase.storage
         .from("product-image")
-        .upload(`${userId}/${file.name}-${uniqueID}`, file, {
-            cacheControl: '3600',
-            upsert: false
+        .upload(`${userId}/${file.name}-${uniqueID}-${i}`, file, {
+          cacheControl: "3600",
+          upsert: false,
         });
 
+      if (error) {
+        toast.error(`Failed to upload ${file.name}: ${error.message}`);
+        return;
+      }
 
-        if(!imgError){
-            const {data, error} = await supabase
-            .from('products')
-            .insert({
-                'title':title, 
-                'brand':brand, 
-                'price':price, 
-                'description':description, 
-                'condition': condition, 
-                'image_urls':{primary: [imgData?.fullPath], secondaryLeft:"NOT RIGHT NOW", secondaryRight:"NA", secondaryBack:"NA"}, 
-                'size':size,
-                'defect': defect, 
-                'category':category,
-                'seller':userId,
-                'current_price': price
-            }).single();
-
-        if(error){
-            console.error("error inserting "+error.message);
-        }else{
-            toast.success("DONE")
-            router.push("/my-uploads")
-            return data;
-        }
-        }else{
-            toast.error(imgError.message);
-        }
-
-    } catch (error) {
-        console.log(error)
+      uploadedPaths.push(data?.fullPath);
     }
-}
+
+    const image_urls = {
+      primary: uploadedPaths,
+    };
+
+    const { data: insertedData, error: insertError } = await supabase
+      .from("products")
+      .insert({
+        'title':title, 
+        'brand':brand, 
+        'price':price, 
+        'description':description, 
+        'condition': condition, 
+        'image_urls': image_urls, 
+        'size':size,
+        'defect': defect, 
+        'category':category,
+        'seller':userId,
+        'current_price': price
+      })
+      .single();
+      
+
+    if (insertError) {
+      console.error("Insert error:", insertError.message);
+      toast.error("Product not uploaded.");
+    } else {
+      toast.success("Product uploaded successfully!");
+      router.push("/my-uploads");
+      return insertedData;
+    }
+  } catch (error) {
+    console.log("Unexpected error:", error);
+    toast.error("Something went wrong.");
+  }
+};

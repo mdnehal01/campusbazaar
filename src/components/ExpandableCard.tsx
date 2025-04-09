@@ -117,7 +117,7 @@ export const ExpandableCard:React.FC<ExpandableCardProps> = ({
                   priority
                   width={200}
                   height={200}
-                  src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/${active.image_urls.primary}`}
+                  src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/${active.image_urls.primary[0]}`}
                   alt={active.title}
                   className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
                 />
@@ -128,7 +128,8 @@ export const ExpandableCard:React.FC<ExpandableCardProps> = ({
                   <div className="">
                     <motion.h3
                       layoutId={`title-${active.product_id}-${id}`}
-                      className="font-bold text-neutral-700 dark:text-neutral-200"
+                      className="font-bold text-neutral-700 dark:text-neutral-200 text-lg"
+
                     >
                       {active.title}
                     </motion.h3>
@@ -136,7 +137,10 @@ export const ExpandableCard:React.FC<ExpandableCardProps> = ({
                       layoutId={`description-${active.product_id}-${id}`}
                       className="text-neutral-600 dark:text-neutral-400"
                     >
+                      <span className="line-clamp-6">
                       {active.description}
+                      </span>
+                      
                     </motion.p>
                   </div>
 
@@ -183,7 +187,7 @@ export const ExpandableCard:React.FC<ExpandableCardProps> = ({
               <motion.div className="relative h-10 w-10" layoutId={`image-${product.product_id}-${id}`}>
                 <Image
                   fill
-                  src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/${product.image_urls.primary}`}
+                  src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/${product.image_urls.primary[0]}`}
                   alt={product.title}
                   className="rounded-lg object-cover object-top"
                 />

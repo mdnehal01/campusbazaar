@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Products } from '@/types'
 import Image from "next/image";
 import { PrelinkImage } from "@/data";
+import { IoIosWarning } from "react-icons/io";
 
 interface ProductInfoProps {
     product?: Products;
@@ -63,7 +64,10 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
                     </div>
                     <h1>Condition</h1>
                 </div>
-
+                <div className="flex items-center text-red-600">
+                    <IoIosWarning/>&nbsp;
+                    {product.defect}
+                </div>
                 <div className="w-full">
                     <h6 className='text-sm font-medium'>{product.description}</h6>
                 </div>

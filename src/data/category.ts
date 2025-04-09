@@ -151,15 +151,76 @@ const category = {
     },
 
     "Gadgets": {
-        titleMain:"Gadgets",
+    titleMain: "Gadgets",
+    
+    "Mobile Phones": {
+        titleSub: "Mobile Phones",
         "Mobile Phones": {
-            titleSub: "",
-            "Mobile Phones": {
-                titleSubSub: "Mobile Phones",
-                imgLink: "/images/women/ethinic/saree.webp" 
-            }
-        },
+            titleSubSub: "Mobile Phones",
+            imgLink: "https://m.media-amazon.com/images/I/71d7rfSl0wL._SX679_.jpg"
+        }
     },
+
+    "Laptops": {
+        titleSub: "Laptops",
+        "Gaming Laptops": {
+            titleSubSub: "Gaming Laptops",
+            imgLink: "https://m.media-amazon.com/images/I/71l5U2MAobL._SX679_.jpg"
+        },
+        "Ultrabooks": {
+            titleSubSub: "Ultrabooks",
+            imgLink: "https://m.media-amazon.com/images/I/51YH5mU9lzL._SX679_.jpg"
+        }
+    },
+
+    "Tablets & iPads": {
+        titleSub: "Tablets & iPads",
+        "Android Tablets": {
+            titleSubSub: "Android Tablets",
+            imgLink: "https://m.media-amazon.com/images/I/61c5QIb1zVL._SX679_.jpg"
+        },
+        "Apple iPads": {
+            titleSubSub: "Apple iPads",
+            imgLink: "https://m.media-amazon.com/images/I/61jLiCovxVL._SX679_.jpg"
+        }
+    },
+
+    "Wearables": {
+        titleSub: "Wearables",
+        "Smart Watches": {
+            titleSubSub: "Smart Watches",
+            imgLink: "https://m.media-amazon.com/images/I/61W2ZKD0yFL._SX679_.jpg"
+        },
+        "Fitness Bands": {
+            titleSubSub: "Fitness Bands",
+            imgLink: "https://m.media-amazon.com/images/I/61YVjvRZUdL._SX679_.jpg"
+        }
+    },
+
+    "Audio": {
+        titleSub: "Audio",
+        "Headphones": {
+            titleSubSub: "Headphones",
+            imgLink: "https://m.media-amazon.com/images/I/61m+WfGB3UL._SX679_.jpg"
+        },
+        "Bluetooth Speakers": {
+            titleSubSub: "Bluetooth Speakers",
+            imgLink: "https://m.media-amazon.com/images/I/61eNhhM2PrL._SX679_.jpg"
+        }
+    },
+
+    "Accessories": {
+        titleSub: "Accessories",
+        "Chargers & Cables": {
+            titleSubSub: "Chargers & Cables",
+            imgLink: "https://m.media-amazon.com/images/I/61KeIxmldcL._SX679_.jpg"
+        },
+        "Power Banks": {
+            titleSubSub: "Power Banks",
+            imgLink: "https://m.media-amazon.com/images/I/61bqjM0R2NL._SX679_.jpg"
+        }
+    }
+}
 }
 
 

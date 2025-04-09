@@ -58,59 +58,20 @@ export function NavigationMenuDemo() {
     <NavigationMenu className="w-50 bg-pink-100 px-5 py-1 rounded-3xl lg:flex gap-12 hidden">
       <NavigationMenuList className="h-auto w-auto">
 
-        {/* FOR Wishlist */}
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent text-md font-bold rounded-full hover:bg-purple-50">Wishlist</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                    {/* <Icons.logo className="h-6 w-6" /> */}
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
-                    </p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
+        {/* FOR SELL */}
+        <div className="hover:bg-slate-100 rounded-md">
+        <a href="/products">
+            &nbsp; Shop &nbsp;
+        </a>
+        </div>
 
 
 
         {/* FOR SELL */}
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent text-md font-bold rounded-full hover:bg-purple-50">Sell</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
+        <NavigationMenuItem className="hover:bg-slate-100 rounded-md">
+          <a href="/add-product">
+            &nbsp; Sell &nbsp;
+          </a>
         </NavigationMenuItem>
         
 

@@ -91,7 +91,8 @@ const Categories: React.FC<CategoriesProps> = ({ open, onClose }) => {
             Others?
           </AccordionTrigger>
           <AccordionContent>
-            <input type="text" onChange={handleOthersValue} placeholder=""/>
+            Please mention the category. <br />
+            <input className="h-10 w-56 p-2 border" type="text" onChange={handleOthersValue} placeholder=""/>
           </AccordionContent>
         </AccordionItem>
       </Accordion>
