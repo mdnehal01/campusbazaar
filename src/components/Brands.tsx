@@ -26,7 +26,7 @@
       
         <div className="fixed bottom-10 right-12 flex gap-x-5">
           <button
-            className="w-24 rounded-md bg-blue-400 text-white py-2"
+            className="w-24 rounded-md bg-pink-400 text-white py-2"
             onClick={() => {
               onClose();
               sendSelected(selectedBrand);

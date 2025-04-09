@@ -109,9 +109,9 @@ const SignUpForm= () => {
             </div>
 
             <br/>
-            <input type="submit" name="submit" required className="cursor-pointer w-full bg-blue-400 hover:bg-blue-500 h-8 text-white border-2 rounded-lg border-slate-300"/>  <br/>
+            <input type="submit" name="submit" required className="cursor-pointer w-full bg-pink-400 hover:bg-pink-500 h-8 text-white border-2 rounded-lg border-slate-300"/>  <br/>
             
-            <h2 className="text-slate-500 text-[14px] pt-3"> Already a User?   <Link href="/login" className="text-blue-500">Login</Link>  </h2>
+            <h2 className="text-slate-500 text-[14px] pt-3"> Already a User?   <Link href="/login" className="text-pink-500">Login</Link>  </h2>
 
             {message && 
             <div className='text-red-500'>

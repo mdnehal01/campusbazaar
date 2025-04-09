@@ -128,7 +128,7 @@ const ProductAddForm = () => {
 
             {/* PHASE 1 start */}
                 <div className={`flex-col gap-y-2 ${nextSlide}`}>
-                <InputType1 onChange={handleTitleChange} name='title' value={title} needIcon={false} placeholder='Name of the product' title='Name of the product'  className='w-[400px] h-10 mb-2 focus:border-blue-300'/>
+                <InputType1 onChange={handleTitleChange} name='title' value={title} needIcon={false} placeholder='Name of the product' title='Name of the product'  className='w-[400px] h-10 mb-2 focus:border-pink-300'/>
     
                 {/* IMAGE UPLOAD BOX */}
                 <h1 className='font-medium'>Add product image <span className='text-red-500 font-bold text-xs'>Upload a minimum of 3 images for a detailed product showcase</span></h1>
@@ -166,7 +166,7 @@ const ProductAddForm = () => {
                     <InputType1 needIcon={false} name='category' value={selectedCategory} onChange={() => {return}} className='hidden'/>
                 </div>
     
-                <InputType1 name='size' className={`${disp} w-[400px] h-10 focus:border-blue-300`} onChange={handleSizeChange} needIcon={false} placeholder='Enter size' value={size}/>
+                <InputType1 name='size' className={`${disp} w-[400px] h-10 focus:border-pink-300`} onChange={handleSizeChange} needIcon={false} placeholder='Enter size' value={size}/>
                 <input className='hidden' type="text" name='userId' value={user?.id ?? ""} onChange={()=>{}}/>
     
                 {/* TODO: Already specified brands */}
@@ -177,19 +177,19 @@ const ProductAddForm = () => {
                 {/* TODO: Add product condition star rating box also any defects box*/}
                 
                 {/* BRAND */}
-                <textarea onChange={handleDescriptionChange} name='description' value={description} placeholder='Add Description' className='w-[400px] h-10 mb-2 focus:outline-blue-300 rounded-md p-2 h-20 outline-none'></textarea>
-                <InputType1 onChange={handleBrandChange} name='brand' value={brandValue} needIcon={false} placeholder='Specify Brand Name' title='Specify brand'  className='w-[400px] h-10 focus:border-blue-300'/>
+                <textarea onChange={handleDescriptionChange} name='description' value={description} placeholder='Add Description' className='w-[400px] h-10 mb-2 focus:outline-pink-300 rounded-md p-2 h-20 outline-none'></textarea>
+                <InputType1 onChange={handleBrandChange} name='brand' value={brandValue} needIcon={false} placeholder='Specify Brand Name' title='Specify brand'  className='w-[400px] h-10 focus:border-pink-300'/>
 
     
     
-                {/* <InputType1 onChange={handleDefectChange} name='defect' value={defect} needIcon={false} placeholder='Specify any defect' className='w-[400px] h-10 mb-2 focus:border-blue-300'/> */}
+                {/* <InputType1 onChange={handleDefectChange} name='defect' value={defect} needIcon={false} placeholder='Specify any defect' className='w-[400px] h-10 mb-2 focus:border-pink-300'/> */}
                 <a className='bg-pink-900 relative grid place-items-center font-bold h-10 cursor-pointer -bottom-3 rounded-md w-40 text-white' onClick={callNextSlide}>Next</a>
                 </div>
         
             {/* PHASE 1 end */}
 
                 <div className={`flex-col gap-y-2 ${nextDisp}`}>
-                    <InputType1 onChange={handleDefectChange} name='defect' value={defect} needIcon={false} placeholder='Specify any defect' className='w-[400px] h-10 mb-2 focus:border-blue-300'/>
+                    <InputType1 onChange={handleDefectChange} name='defect' value={defect} needIcon={false} placeholder='Specify any defect' className='w-[400px] h-10 mb-2 focus:border-pink-300'/>
                                     {/* RANGE ADD IN CONDITION 5star */}
                 
                     <div className="border border-black w-fit rounded-md px-2 gap-x-2 rating items-center flex-row-reverse">
@@ -215,11 +215,11 @@ const ProductAddForm = () => {
                     </div>
                 )}
 
-                    <InputType1 onChange={handlePriceChangge} name='price' iconbg='bg-transparent' type='number' value={price} needIcon={true} icon={<BiRupee className='-mt-2'/>} placeholder='Add pricing' className='w-[400px] h-10 mb-2 focus:border-blue-300'/>
+                    <InputType1 onChange={handlePriceChangge} name='price' iconbg='bg-transparent' type='number' value={price} needIcon={true} icon={<BiRupee className='-mt-2'/>} placeholder='Add pricing' className='w-[400px] h-10 mb-2 focus:border-pink-300'/>
 
                     <div className='flex justify-between relative -bottom-3'>
                         <a className='bg-pink-900 relative grid place-items-center font-bold h-10 cursor-pointer -bottom-3 rounded-md w-40 text-white' onClick={callPrevSlide}>Back</a>
-                        <ButtonType1 className='bg-blue-600 rounded-md w-40 text-white' type='submit' onClick={adding}>Post</ButtonType1>
+                        <ButtonType1 className='bg-pink-600 rounded-md w-40 text-white' type='submit' onClick={adding}>Post</ButtonType1>
                     </div>
                 </div>
       </form>

@@ -53,7 +53,7 @@ export const UploadProduct = async (form: FormData, router: any) => {
                 'price':price, 
                 'description':description, 
                 'condition': condition, 
-                'image_urls':{primary: imgData?.fullPath, secondaryLeft:"NOT RIGHT NOW", secondaryRight:"NA", secondaryBack:"NA"}, 
+                'image_urls':{primary: [imgData?.fullPath], secondaryLeft:"NOT RIGHT NOW", secondaryRight:"NA", secondaryBack:"NA"}, 
                 'size':size,
                 'defect': defect, 
                 'category':category,

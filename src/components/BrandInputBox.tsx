@@ -9,7 +9,7 @@ const BrandInputBox = () => {
         setBrandValue(event.target.value);
     }
     return (
-        <InputType1 onChange={handleBrandChange} name='brand' value={brandValue} needIcon={false} placeholder='Specify Brand Name' title='Specify brand'  className='w-64 h-10 focus:border-blue-300'/>
+        <InputType1 onChange={handleBrandChange} name='brand' value={brandValue} needIcon={false} placeholder='Specify Brand Name' title='Specify brand'  className='w-64 h-10 focus:border-pink-300'/>
     )
 }
 

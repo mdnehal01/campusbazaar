@@ -162,3 +162,5 @@ Party Supplies: Decorations, Costumes
 
 
 TODO: I can edit in my uploads or my products with a discount <Previously> <Now> user enters discount percentage and the new price is already set 
+
+TODO: While selling a product generate description

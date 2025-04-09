@@ -1,0 +1,1 @@
+export const PrelinkImage = "https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/";

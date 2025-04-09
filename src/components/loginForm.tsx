@@ -33,26 +33,26 @@ const LoginForm = () => {
 
         <h2 className='text-slate-500 text-[14px]'> Email </h2>
         <input 
-            className="bg-slate-50  text-slate-500 w-full border-2 rounded-lg border-blue-200"
+            className="bg-slate-50  text-slate-500 w-full border-2 rounded-lg border-pink-200"
             type="email" name="email" value={email} onChange={handleChangeEmail} />
         <br />
         
         <h2 className='text-slate-500 text-[14px]'>Password </h2>
         <input 
-            className="bg-slate-50  text-slate-500 w-full border-2 rounded-lg border-blue-200"
+            className="bg-slate-50  text-slate-500 w-full border-2 rounded-lg border-pink-200"
             type="password" name="password" value={password} onChange={handleChangePass} />
         <br />
 
         <br/>
         <button 
             onClick={login}
-            className="bg-blue-500 h-8 w-40 text-white border-2 rounded-lg border-slate-300">
+            className="bg-pink-500 h-8 w-40 text-white border-2 rounded-lg border-slate-300">
             Login
         </button>
 
         <br />
         <br />
-        <h2 className="text-slate-500 text-[14px]"> Don&apos;t have an account?   <Link href="/signup" className="text-blue-500">Signup</Link>  </h2>
+        <h2 className="text-slate-500 text-[14px]"> Don&apos;t have an account?   <Link href="/signup" className="text-pink-500">Signup</Link>  </h2>
         
         
 

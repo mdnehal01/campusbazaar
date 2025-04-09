@@ -21,13 +21,16 @@ export interface Products{
     description:string;
     created_at:string;
     image_urls:{
-        primary: string;
+        primary: string[];
         secondaryLeft: string;
         secondaryRight: string;
         secondaryBack:string;
     };
+    category_id:string;
     total_likes:number;
     size:string;
     defect:string;
+    listed:boolean;
+    sold:boolean;
 }
 

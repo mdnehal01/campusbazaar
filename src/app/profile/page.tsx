@@ -73,12 +73,12 @@ const Profile = () => {
 
                         <div className=" update2 flex flex-col gap-y-4 w-[50%] pl-[30px] ">
                             <div className='userProfilePic  h-40 w- flex flex-col gap-y-4 items-start justify-center'>
-                                <div className='h-10 w-40 relative cursor-pointer bg-blue-600 rounded-sm font-sans border-gray-500 text-white py-2 px-6 hover:bg-blue-400'>
+                                <div className='h-10 w-40 relative cursor-pointer bg-pink-600 rounded-sm font-sans border-gray-500 text-white py-2 px-6 hover:bg-pink-400'>
                                     Update Photo
                                     <input className='opacity-0 absolute left-0 h-full w-full' type="file" accept='image/webp, image/jpeg, image/png, image/jpg' placeholder="Update Photo" onChange={handlePicChange}/>
                                 </div>
                                 
-                                <button className='h-10 w-40 bg-blue-600 rounded-sm font-sans border-gray-500 text-white py-2 px-6 hover:bg-blue-400'>Delete Photo</button>
+                                <button className='h-10 w-40 bg-pink-600 rounded-sm font-sans border-gray-500 text-white py-2 px-6 hover:bg-pink-400'>Delete Photo</button>
                             </div>
 
                             <input type="text" placeholder="College" className='h-10 w-80 rounded-sm px-3'/>

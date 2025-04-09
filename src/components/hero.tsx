@@ -29,7 +29,7 @@ const Hero = () => {
           <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99ffe0] to-[#d199ff] text-transparent bg-clip-text">REUSE &nbsp;</h1>
         </div>
 
-        <InputType1 iconbg="bg-blue-500" needIcon={true} icon={<FaSearch className="text-white"/>} placeholder={search} onclick={handleSearch} className="relative bg-white rounded-full border-neutral-400 focus:border-blue-200 outline-none md:w-[500px] w-[300px] focus:bg-neutral-100 md:focus:w-[700px] focus:w-[350px] transition-all duration-300"/>
+        <InputType1 iconbg="bg-pink-500" needIcon={true} icon={<FaSearch className="text-white"/>} placeholder={search} onclick={handleSearch} className="relative bg-white rounded-full border-neutral-400 focus:border-pink-200 outline-none md:w-[500px] w-[300px] focus:bg-neutral-100 md:focus:w-[700px] focus:w-[350px] transition-all duration-300"/>
       </div>
     </div>
   );

@@ -131,7 +131,7 @@ const StyledWrapper = styled.div`
   .button {
     position: relative;
     width: 150px;
-    height: 40px;
+    height: 30px;
     cursor: pointer;
     display: flex;
     align-items: center;

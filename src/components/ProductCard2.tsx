@@ -6,6 +6,7 @@ import Image from 'next/image';
 import AddToCartBtn from '@/app/(products)/products/components/AddToCartBtn';
 import addToCartFn from '@/actions/addToCartFn';
 import { useUser } from '@/hooks/useUser';
+import { useRouter } from 'next/navigation';
 
 interface ProductCard2Props{
   product:Products
@@ -16,13 +17,14 @@ const ProductCard2:React.FC<ProductCard2Props>= (
 ) => {
   const { user } = useUser();
   const discount = 100-((product.current_price / product.price) * 100);
+  const router = useRouter()
   return (
-    <StyledWrapper>
-      <div className="card">
+    <StyledWrapper className='relative'>
+      <div className="card bg-slate-200 hover:bg-slate-100 border border-pink-800" onClick={()=>router.push(`/product/${product.product_id}`)}>
         <div className="wrapper">
           <div className="card-image w-full h-36 relative">
             {/* <Image */}
-            <Image className='object-cover' src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/${product.image_urls.primary}`} fill alt={product.image_urls.primary} />
+            <Image className='object-cover' src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/${product.image_urls.primary[0]}`} fill alt={product.title} />
           </div>
           <div className="content">
             <p className="title">{product.title}</p>
@@ -44,9 +46,11 @@ const ProductCard2:React.FC<ProductCard2Props>= (
         {discount == 0 ? (<></>):(
           <p className="tag bg-pink-400">-{discount}%</p>
         )}
-        <div className="card-btn absolute w-[80%] -bottom-10 left-1/2 -translate-x-1/2">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="card-btn absolute w-[80%] z-50 -bottom-5 left-1/2 -translate-x-1/2">
           <AddToCartBtn productId={product.product_id}/>
-        </div>
+      </div>
       </div>
     </StyledWrapper>
   );
@@ -56,12 +60,11 @@ const StyledWrapper = styled.div`
   .card {
     width: 190px;
     height: 254px;
-    background: #f5f5f5;
     padding: 15px;
     border-radius: 10px;
     overflow: hidden;
     transition: all 0.3s;
-    position: relative;
+    // position: relative;
   }
   .wrapper {
     height: fit-content;
@@ -115,10 +118,6 @@ const StyledWrapper = styled.div`
   }
   .card:hover .card-btn {
     bottom: 10px;
-  }
-
-  .card:hover {
-    background-color: white;
   }
 
   .tag {

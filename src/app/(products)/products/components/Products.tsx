@@ -17,7 +17,7 @@ const ProductsBox:React.FC<ProductsProps> = ({
                     key={item.product_id}
                     product={item}
                 />
-            ))}
+        ))}
     </div>
   )
 }

@@ -27,7 +27,7 @@ export function DropDownOptions() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div className="w-9 rounded-full border-2 border-blue-300 cursor-pointer h-9 bg-center bg-contain" style={{
+        <div className="w-9 rounded-full border-2 border-pink-300 cursor-pointer h-9 bg-center bg-contain" style={{
           backgroundImage: `url('/category/1.png')`
         }}></div>
       </DropdownMenuTrigger>

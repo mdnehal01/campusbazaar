@@ -56,9 +56,9 @@ const Categories: React.FC<CategoriesProps> = ({ open, onClose }) => {
                             <div
                               key={itemKey}
                               onClick={() => sendData(uniqueKey)} // Use uniqueKey as the identifier
-                              className={`cursor-pointer gap-y-4 hover:border-blue-400 hover:bg-blue-100 p-3 w-[120px] h-[150px] rounded-md border ${
+                              className={`cursor-pointer gap-y-4 hover:border-pink-400 hover:bg-pink-100 p-3 w-[120px] h-[150px] rounded-md border ${
                                 selectedCategory === uniqueKey
-                                  ? "bg-blue-100 border-blue-500"
+                                  ? "bg-pink-100 border-pink-500"
                                   : "border-neutral-200"
                               } flex flex-col items-center`}
                             >
@@ -99,7 +99,7 @@ const Categories: React.FC<CategoriesProps> = ({ open, onClose }) => {
 
       <div className="fixed bottom-10 right-12 flex gap-x-5">
         <button
-          className="w-24 rounded-md bg-blue-400 text-white py-2"
+          className="w-24 rounded-md bg-pink-400 text-white py-2"
           onClick={() => {
             onClose();
             sendSelected(selectedCategory);

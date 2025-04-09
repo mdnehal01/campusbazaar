@@ -30,7 +30,7 @@ function page() {
             </div>
 
             <div className="reportBugForm w-[40%] mx-[2%]">
-                <h1 className="font-bold text-blue-900 font-sans text-4xl m-[5%]">Report Bugs Form</h1>
+                <h1 className="font-bold text-pink-900 font-sans text-4xl m-[5%]">Report Bugs Form</h1>
                 <form action={reportBugSubmit} className='flex flex-col gap-y-4 '>
                 
                     <input type="text" name="title" placeholder="Title" className={inputClass} required />
@@ -45,7 +45,7 @@ function page() {
                         <option value="Minor">Minor</option>
                     </select>
                     <input type="file" name="reportedBugs" />
-                    <button type="submit" className="bg-blue-400 rounded-xl p-2 text-white w-40"> SUBMIT </button>
+                    <button type="submit" className="bg-pink-400 rounded-xl p-2 text-white w-40"> SUBMIT </button>
                 
                 </form>
             </div>
