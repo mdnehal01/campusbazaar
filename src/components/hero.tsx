@@ -7,7 +7,6 @@ import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 import Image from "next/image";
 import { FormDemo } from "./FormDemo";
-import ImageDescriptionForm from "./Description";
 
 const Hero = () => {
 
@@ -19,7 +18,6 @@ const Hero = () => {
 
   return (
     <div className="md:h-fit flex flex-col h-96 w-full pb-10 lg:px-20 px-5 relative">
-      <ImageDescriptionForm/>
       <div className="tagline flex items-center justify-between flex-col h-[450px]">
         {/* <h1 className="md:text-6xl text-4xl font-serif">Campus Bazaar</h1> */}
         <Image loading="lazy" src="/logo/cb-logo-remove.png" className="mt-20 md:scale-100 scale-75" height={100} width={300} alt="logo"/>
