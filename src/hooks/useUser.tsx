@@ -32,7 +32,6 @@ export const MyUserContextProvider = (props: Props) => {
     
     // KNOW: Here the user who is logged in is stored in a variable name user
     const user = useSupaUser();
-
     const accessToken = session?.access_token ?? null;
     const [isLoadingData, setIsLoadingData] = useState(false);
     const [userDetails, setUserDetails] = useState<UserDetails | null>(null); 
