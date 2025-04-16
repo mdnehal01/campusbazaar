@@ -5,8 +5,11 @@ export interface UserDetails{
     email:string;
     phone_number?:number;
     college:string;
+    department:string;
+    year:string;
     recent_searches:string[];
     created_at:string;
+    profile_pic_url:string;
 }
 
 export interface Products{
