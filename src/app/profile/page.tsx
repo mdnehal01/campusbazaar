@@ -141,7 +141,7 @@ const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
                                 <input type="text" placeholder='Full Name' value={fullName} onChange={(e) => setFullName(e.target.value)} className='h-10 w-80 rounded-sm px-3' required />
                                 <input type="number" placeholder='Phone Number' value={phone} onChange={(e) => setPhone(e.target.value)} className='h-10 w-80 rounded-sm px-3' />
-                                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className='h-10 w-80 rounded-sm px-3' />
+                                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className='h-10 w-80 rounded-sm px-3' disabled/>
                             </div>
 
                             <div className="update2 flex flex-col gap-y-4 w-[50%] pl-[30px]">

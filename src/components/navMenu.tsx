@@ -58,10 +58,10 @@ export function NavigationMenuDemo() {
     <NavigationMenu className="w-50 bg-pink-100 px-5 py-1 rounded-3xl lg:flex gap-12 hidden">
       <NavigationMenuList className="h-auto w-auto">
 
-        {/* FOR SELL */}
+        {/* FOR Buy */}
         <div className="hover:bg-slate-100 rounde-lg">
         <a href="/products">
-            &nbsp; Shop &nbsp;
+            &nbsp; Buy &nbsp;
         </a>
         </div>
 
@@ -72,6 +72,13 @@ export function NavigationMenuDemo() {
           </a>
         </NavigationMenuItem>
         
+
+        {/* FOR MY PRODUCTS */}
+        <NavigationMenuItem className="hover:bg-slate-100 rounded-lg">
+          <a href="/my-uploads">
+            &nbsp; My products &nbsp;
+          </a>
+        </NavigationMenuItem>
 
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent text-md font-bold rounded-full hover:bg-purple-50">Trending</NavigationMenuTrigger>

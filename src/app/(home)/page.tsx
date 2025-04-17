@@ -26,13 +26,6 @@ export default function Home() {
         <HowToSell />
       </div>
 
-      <a href="/gemini"> 
-        <div className="bg-red-600 text-white content-center rounded-lg text-3xl p-10 h-[120px] w-[270px] mx-[700px]">
-        TRY GEMINI 
-        
-        </div>
-      </a>
-
       <div className="whyBuySell">
         <WhyBuySell />
       </div>
