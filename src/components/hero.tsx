@@ -26,7 +26,7 @@ const Hero = () => {
         {/* <h2 className="text-5xl">Buy, Sell, Reuse</h2> */}
         <div className="flex md:justify-start justify-center md:absolute top-0 lg:-right-64 md:-right-44 md:rotate-90 rotate-0 origin-top-left md:flex-col flex-row">
           <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99daff] dark:from-[red] to-[#99b9ff] text-transparent bg-clip-text">BUY &nbsp;</h1>
-          <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99f0ff] to-[#9a84ff] text-transparent bg-clip-text">RESELL &nbsp;</h1>
+          <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99f0ff] to-[#9a84ff] text-transparent bg-clip-text">SELL &nbsp;</h1>
           <h1 className="font-extrabold lg:text-7xl md:text-5xl text-xl flex flex-col top-0 right-0 origin-top-left bg-gradient-to-r from-[#99ffe0] to-[#d199ff] text-transparent bg-clip-text">REUSE &nbsp;</h1>
         </div>
 
