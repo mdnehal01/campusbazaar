@@ -6,6 +6,7 @@ import { useSessionContext } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
+// @ts-ignore
 import uniqid from 'uniqid';
 
 const Profile = () => {
@@ -19,8 +20,6 @@ const Profile = () => {
     const [college, setCollege] = useState("");
     const [department, setDepartment] = useState("");
     const [gradYear, setGradYear] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
     const [userId, setUserId] = useState<String>();
 
     const [imgPreview, setImgPreview] = useState<string>("/cart/boo-faceless.jpeg");
