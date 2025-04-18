@@ -19,7 +19,7 @@ const CartContent:React.FC<CartContentProps> = ({
 
 
   return (
-    <div className='flex h-[500px] rounded-t-3xl overflow-y-auto'>
+    <div className='flex min-h-[300px] h-fit rounded-t-3xl overflow-y-auto'>
 
           <div className='w-full py-5'>
 
@@ -27,23 +27,23 @@ const CartContent:React.FC<CartContentProps> = ({
             {user ? <>
               {/* THen check if logged in then any item is there in cart or not if no then show empty cart else show products */}
               {products.length == 0 ?     
-              <div className="loggedIn h-[500px] flex items-center justify-center">
+              <div className="loggedIn h-[500px] flex items-center justify-center scrollbar-none">
 
-                <div className='h-[200px] w-[200px] bg-yellow-200 bg-center bg-contain' 
+                <div className='h-[200px] w-[200px] bg-yellow-200 bg-center bg-contain scrollbar-none' 
                     style={{backgroundImage:`url(/cart/campus-bazaar-cart-empty.jpeg)`}}
                     >
                 </div>            
-                <div className= " h-[200px] w-[400px] pt-5 flex flex-col  gap-y-6 pl-4">
-                  <h1 className='text-2xl font-bold font-sans'>Oh no! Your cart is empty</h1>
-                  <button className='w-[200px] bg-green-600 border-2 rounded-md text-white font-sans font-semibold py-1 px-3 hover:scale-105 transition-all duration-200 hover:border-pink-600 hover:bg-white hover:text-pink-900' onClick={()=>{
+                <div className= " h-[200px] w-[400px] pt-5 flex flex-col  gap-y-6 pl-4 scrollbar-none">
+                  <h1 className='text-2xl font-bold font-sans scrollbar-none'>Oh no! Your cart is empty</h1>
+                  <button className='w-[200px] scrollbar-none bg-green-600 border-2 rounded-md text-white font-sans font-semibold py-1 px-3 hover:scale-105 transition-all duration-200 hover:border-pink-600 hover:bg-white hover:text-pink-900' onClick={()=>{
                     router.push("/products");
                   }}>Start Shopping</button>
-                  <h1 className='text-md text-pink-700 font-sans'>Your cart is on a diet. Feed it with some cool finds!</h1>
+                  <h1 className='scrollbar-none text-md text-pink-700 font-sans'>Your cart is on a diet. Feed it with some cool finds!</h1>
                 </div>
               
               </div>
               :
-              <div className='overflow-y-auto'>
+              <div className='overflow-y-auto scrollbar-none'>
                 <ExpandableCard products={products}/>
               </div>
               }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Products } from '@/types'
-import ProductCard2 from '@/components/ProductCard2'
+import ProductCard2Edit from '@/components/ProductCard2Edit'
 
 interface ProductsProps{
     products:Products[]
@@ -15,7 +15,7 @@ const ProductsBox:React.FC<ProductsProps> = ({
           <h1>You currently have no items listed for sale. <a className='text-pink-500 underline' href="/add-product">Click here to sell your items.</a></h1>
         )}
         {products.map((item) => (
-                <ProductCard2
+                <ProductCard2Edit
                     key={item.product_id}
                     product={item}
                 />

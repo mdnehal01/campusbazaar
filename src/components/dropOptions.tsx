@@ -39,7 +39,7 @@ export function DropDownOptions() {
             Profile
           </DropdownMenuItem>
 
-          <DropdownMenuItem onClick={() => router.push("/my-uploads")}>
+          <DropdownMenuItem onClick={() => router.push("/my-products")}>
             My Products
           </DropdownMenuItem>
 

@@ -94,9 +94,23 @@ const AddToCartBtn: React.FC<AddToCartBtnProps> = ({ productId }) => {
         if (error) {
           toast.error(error.message);
         } else {
-          setIsAdded(true);
-          toast.success('Added to cart!');
-          updateCartCount(); // ✅ refresh cart count
+
+          // When added in cart then remove from saved for later
+
+          const {data:laterData, error:laterErr} = await supabaseClient
+            .from('saved_for_later_products')
+            .delete()
+            .eq('user_id', user.id)
+            .eq('product_id', productId)
+            .maybeSingle()
+
+            if(laterErr){
+              toast.error(laterErr.message)
+            }else{
+              setIsAdded(true);
+              toast.success('Added to cart!');
+              updateCartCount(); // ✅ refresh cart count
+            }
         }
       } else {
         setIsAdded(true);

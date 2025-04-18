@@ -11,6 +11,7 @@ export const getAllProductsExceptUser = async () => {
     const { data, error } = await supabase
         .from('products')
         .select("*")
+        .eq('listed', true)
         .neq('seller', session?.user.id);
 
 

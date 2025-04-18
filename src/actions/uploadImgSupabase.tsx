@@ -20,7 +20,7 @@ const uploadImgSupabase = async (file:File) => {
 
     if(data){
         toast.success("Uploaded")
-        redirect("/my-uploads")
+        redirect("/my-products")
     }else{
         toast.error(error.message)
     }

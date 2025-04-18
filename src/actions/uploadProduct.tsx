@@ -76,7 +76,7 @@ files.forEach((file, i) => {
       toast.error("Product not uploaded.");
     } else {
       toast.success("Product uploaded successfully!");
-      router.push("/my-uploads");
+      router.push("/my-products");
       return insertedData;
     }
   } catch (error) {

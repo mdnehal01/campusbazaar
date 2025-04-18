@@ -71,7 +71,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
     const updatedData = {
         name: fullName,
-        email: email,
         phone_number: phone,
         college: college,
         department: department,

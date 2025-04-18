@@ -8,6 +8,7 @@ export const getAllProducts = async () => {
     const { data, error } = await supabase
         .from('products')
         .select("*")
+        .eq("listed",true)
 
 
     if(data){

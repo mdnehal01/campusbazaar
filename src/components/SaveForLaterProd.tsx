@@ -4,19 +4,18 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { Products } from "@/types";
-import { IoMdRemove } from "react-icons/io";
-import { BiListMinus, BiTrash } from "react-icons/bi";
+import { BiCartAdd, BiListMinus, BiTrash } from "react-icons/bi";
 import { useUser } from "@/hooks/useUser";
-import { usePathname, useRouter } from "next/navigation";
-import { SupabaseClient, useSessionContext } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/navigation";
+import { useSessionContext } from "@supabase/auth-helpers-react";
 import toast from "react-hot-toast";
 import { useCartStore } from "@/hooks/useCartStore";
 
-interface ExpandableCardProps{
+interface SaveForLaterProdProps{
   products:Products[];
 }
 
-export const ExpandableCard:React.FC<ExpandableCardProps> = ({
+export const SaveForLaterProd:React.FC<SaveForLaterProdProps> = ({
   products
 })=>{
   const [active, setActive] = useState<(typeof products)[number] | boolean | null>(
@@ -27,7 +26,6 @@ export const ExpandableCard:React.FC<ExpandableCardProps> = ({
 
   const { user } = useUser();
   const router = useRouter();
-  const pathname = usePathname();
 
   const { supabaseClient } = useSessionContext();
 
@@ -53,49 +51,32 @@ export const ExpandableCard:React.FC<ExpandableCardProps> = ({
 
   useOutsideClick(ref, () => setActive(null));
 
-  const handleRemoveCart = async (productId:string) => {
-    if (!user) {
-      router.push(`/login?redirectTo=${pathname}`)
-    }
-    const { error } = await supabaseClient
-            .from('cart_products')
-            .delete()
-            .eq('user_id', user?.id)
-            .eq('product_id', productId);
+  const moveToCart = async (productId:string) => {
+    // First Item will delete from Save for later table and then added to the cart table in database
+    const {data, error} = await supabaseClient
+      .from('saved_for_later_products')
+      .delete()
+      .eq('user_id', user?.id)
+      .eq('product_id', productId)
+      .maybeSingle()
 
-        if (error) {
-            toast.error(error.message);
-        } else {
-          setCartLength(Math.max(cartLength - 1, 0));
-            toast.success('Removed from cart!');
+      if(error){
+        toast.error(error.message)
+      }else{
+        const {data:moveCartData, error:moveCartErr} = await supabaseClient
+          .from('cart_products')
+          .insert({'product_id':productId, 'user_id':user?.id})
+          .single()
+
+        if(moveCartErr){
+          toast.error(moveCartErr.message+"MoveCartErr")
+        }else{
+          toast.success("Moved to cart!")
+          setCartLength(cartLength+1)
+          router.refresh();
         }
-    router.refresh();
-};
+      }
 
-  const handleSaveForLater = async (productId: string) => {
-
-    const {data,error} = await supabaseClient
-            .from("saved_for_later_products")
-            .insert({'product_id':productId, 'user_id':user?.id})
-            .single()
-    
-    if(error){
-      toast.error(error.message)
-    }else{
-      const { error:removeErr } = await supabaseClient
-            .from('cart_products')
-            .delete()
-            .eq('user_id', user?.id)
-            .eq('product_id', productId);
-
-        if (removeErr) {
-            toast.error(removeErr.message);
-        } else {
-          setCartLength(Math.max(cartLength - 1, 0));
-            toast.success('Saved for later!');
-        }
-        router.refresh();
-    }
   }
 
   return (
@@ -195,9 +176,9 @@ export const ExpandableCard:React.FC<ExpandableCardProps> = ({
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="w-full px-5 mx-auto gap-4">
+      <ul className="w-full mx-auto gap-4">
         {products.map((product, index) => (
-          <div key={`card-${product.product_id}-${id}`} className="flex justify-around pr-5 items-center hover:bg-neutral-100">
+          <div key={`card-${product.product_id}-${id}`} className="flex justify-around items-center hover:bg-neutral-100">
           <motion.div
             layoutId={`card-${product.product_id}-${id}`}
             key={`card-${product.product_id}-${id}`}
@@ -237,7 +218,7 @@ export const ExpandableCard:React.FC<ExpandableCardProps> = ({
             </div>
             <motion.button
               layoutId={`button-${product.product_id}-${id}`}
-              className="px-2 py-2 text-sm rounded-full font-bold bg-gray-100 w-[120px] hover:bg-pink-500 hover:text-white text-black mt-4 md:mt-0"
+              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 w-[120px] hover:bg-pink-500 hover:text-white text-black mt-4 md:mt-0"
             >
               ₹{product.current_price}
             </motion.button>
@@ -245,32 +226,17 @@ export const ExpandableCard:React.FC<ExpandableCardProps> = ({
             {/* DELETE ANY PRODUCT FROM CART */}
 
           </motion.div>
-          <div className="flex gap-x-2">
 
             <div className="relative group">
-              <BiListMinus
-                onClick={()=>handleSaveForLater(product.product_id)}
+              <BiCartAdd
                 size={20} 
                 className="text-black hover:text-blue-500 cursor-pointer"
+                onClick={()=>moveToCart(product.product_id)}
               />
-              <span className="absolute -top-6 left-1/2 -translate-x-1/2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                Save for later
+              <span className="absolute -top-6 left-0 -translate-x-1/2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                Move to cart
               </span>
             </div>
-            
-            
-            <div className="relative group">
-              <BiTrash
-                size={18}
-                className="text-black hover:text-red-500 cursor-pointer"
-                onClick={() => handleRemoveCart(product.product_id)}
-              />
-              <span className="absolute -top-6 left-1/2 -translate-x-1/2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                Delete
-              </span>
-            </div>
-
-          </div>
           </div>
         ))}
       </ul>
