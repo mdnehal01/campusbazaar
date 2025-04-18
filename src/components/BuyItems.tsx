@@ -1,6 +1,7 @@
 "use client"
 import { Products } from '@/types'
 import React, { useEffect, useState } from 'react'
+import { GlobeDemo } from './Globe'
 
 interface BuyItemsProps {
   products: Products[]
@@ -18,7 +19,15 @@ const BuyItems: React.FC<BuyItemsProps> = ({ products }) => {
 
   return (
     <div className='bg-pink-50 rounded-r-xl p-5 w-full h-full'>
-        <span className='text-sm'>Your Total:</span> <span className='text-md font-semibold'>₹{formattedPrice}</span>
+      {products.length == 0 ? (
+        <>
+          <GlobeDemo/>
+        </>
+      ):(
+        <>
+          <span className='text-sm'>Your Total:</span> <span className='text-md font-semibold'>₹{formattedPrice}</span>
+        </>
+      )}
     </div>
   )
 }

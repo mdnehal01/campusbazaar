@@ -25,7 +25,7 @@ const Page = async () => {
         <div className='bg-white/90 p-10 max-h-[800px] h-fit w-[1200px] rounded-xl shadow-md shadow-gray-400 scrollbar-none'>
           <h1 className='font-bold text-2xl'>Your Items</h1>
           <div className='w-[800px] h-full scrollbar-none py-5'>
-            <span className='font-medium'>Saved for later</span>
+            <span className='font-medium'>Saved for later ({laterProducts.length})</span>
             <SaveForLaterContent products={laterProducts}/>
           </div>
         </div>
