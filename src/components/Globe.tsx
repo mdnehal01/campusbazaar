@@ -10,14 +10,14 @@ const World = dynamic(() => import("@/components/ui/globe").then((m) => m.World)
 export function GlobeDemo() {
   const globeConfig = {
     pointSize: 4,
-    globeColor: "#062056",
+    globeColor: "white",
     showAtmosphere: true,
     atmosphereColor: "#FFFFFF",
     atmosphereAltitude: 0.1,
-    emissive: "#062056",
+    emissive: "pink",
     emissiveIntensity: 0.1,
     shininess: 0.9,
-    polygonColor: "rgba(255,255,255,0.7)",
+    polygonColor: "black",
     ambientLight: "#38bdf8",
     directionalLeftLight: "#ffffff",
     directionalTopLight: "#ffffff",

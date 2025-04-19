@@ -75,7 +75,7 @@ export function NavigationMenuDemo() {
 
         {/* FOR MY PRODUCTS */}
         <NavigationMenuItem className="hover:bg-slate-100 rounded-lg">
-          <a href="/my-uploads">
+          <a href="/my-products">
             &nbsp; My products &nbsp;
           </a>
         </NavigationMenuItem>

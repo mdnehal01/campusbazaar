@@ -16,11 +16,18 @@ import {
 
 import signOut from "@/actions/signOut"
 import { useRouter } from "next/navigation"
+import { useState } from "react";
+import { FaClosedCaptioning, FaCross, FaRegClosedCaptioning } from "react-icons/fa";
+import { CgClose, CgCloseO, CgCloseR } from "react-icons/cg";
+import { IoMdClose, IoMdCloseCircle } from "react-icons/io";
 
 
 export function DropDownOptions() {
 
   const router = useRouter();
+
+  //for dialog box
+  const [dialogBox, setDialogBox]=useState(false);
 
   // TODO: if profile picture there then show profile picture instead of Static image icon
 
@@ -52,14 +59,16 @@ export function DropDownOptions() {
         <DropdownMenuGroup>
           
           <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Invite friends</DropdownMenuSubTrigger>
+            <DropdownMenuSubTrigger onClick={()=>setDialogBox(prev => !prev)}>Invite friends</DropdownMenuSubTrigger>
             <DropdownMenuPortal>
-              <DropdownMenuSubContent>
+
+              {/* <DropdownMenuSubContent>
                 <DropdownMenuItem>via Whatsapp</DropdownMenuItem>
                 <DropdownMenuItem>via Link</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>More...</DropdownMenuItem>
-              </DropdownMenuSubContent>
+              </DropdownMenuSubContent> */}
+
             </DropdownMenuPortal>
           </DropdownMenuSub>
           <DropdownMenuItem onClick={()=>router.push("/report-bugs")}>
@@ -77,6 +86,24 @@ export function DropDownOptions() {
           Log out
         </DropdownMenuItem>
       </DropdownMenuContent>
+
+
+      {/* dialog */}
+      {dialogBox && 
+      <div className="h-screen w-screen bg-green-400/10 absolute left-0 top-0 grid place-items-center backdrop-blur-sm">
+
+      <div className="h-[250px] w-[450px] bg-white border border-blue-950 shadow-lg rounded-md z-10">
+        <div className="p-5 flex justify-between rounded-md">
+          <h6>Share now! </h6>
+          <CgClose onClick={()=>setDialogBox(false)} color="red"/>
+        </div>
+      </div>
+
+      </div>
+      }
+      
+
+
     </DropdownMenu>
   )
 }
