@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { Products } from '@/types';
 import Image from 'next/image';
 import AddToCartBtn from '@/app/(products)/products/components/AddToCartBtn';
-import addToCartFn from '@/actions/addToCartFn';
 import { useUser } from '@/hooks/useUser';
 import { useRouter } from 'next/navigation';
 
@@ -16,7 +15,9 @@ const ProductCard2:React.FC<ProductCard2Props>= (
   {product}
 ) => {
   const { user } = useUser();
-  const discount = 100-((product.current_price / product.price) * 100);
+  const discount = +(100 - ((product.current_price / product.price) * 100)).toFixed(2);
+  const commaCurPrice = Number(product.current_price).toLocaleString("en-IN");
+  const commaPrice = Number(product.price).toLocaleString("en-IN");
   const router = useRouter()
   return (
     <StyledWrapper className='relative'>
@@ -31,12 +32,12 @@ const ProductCard2:React.FC<ProductCard2Props>= (
 
             {product.current_price == product.price ? (
               <>
-                <p className="title price">₹{product.current_price}</p>
+                <p className="title price">₹{commaCurPrice}</p>
               </>
             ):(
               <>
-                <p className="title price">₹{product.current_price}</p>
-                <p className="title price old-price">₹{product.price}</p>
+                <p className="title price">₹{commaCurPrice}</p>
+                <p className="title price old-price">₹{commaPrice}</p>
               </>
             ) 
           }

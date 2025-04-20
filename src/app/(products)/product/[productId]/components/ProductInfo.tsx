@@ -15,7 +15,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
 
     const curPrice = Number(product.current_price).toLocaleString("en-IN")
     const condition = product.condition?.toString();
-    const discount = 100 - ((product.current_price / product.price) * 100);
+    const discount = +(100 - ((product.current_price / product.price) * 100)).toFixed(2);
 
     const [imageShown, setImageShown] = useState(product.image_urls.primary[0]);
 
@@ -65,11 +65,11 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
                     <h1>Condition</h1>
                 </div>
                 <div className="flex items-center text-red-600">
-                    <IoIosWarning/>&nbsp;
-                    {product.defect}
+                    <IoIosWarning color="red"/>&nbsp;
+                    Defect: {product.defect}
                 </div>
                 <div className="w-full">
-                    <h6 className='text-sm font-medium'>{product.description}</h6>
+                    <h6 className='text-md font-medium'>{product.description}</h6>
                 </div>
             </div>
 

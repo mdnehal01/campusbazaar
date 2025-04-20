@@ -2,6 +2,7 @@
 import { Products } from '@/types'
 import React, { useEffect, useState } from 'react'
 import { GlobeDemo } from './Globe'
+import CheckoutBtn from './CheckoutBtn'
 
 interface BuyItemsProps {
   products: Products[]
@@ -30,6 +31,7 @@ const BuyItems: React.FC<BuyItemsProps> = ({ products }) => {
         <div className='flex flex-col gap-5'>
           <span>Woohoo you&apos;re going to save <span className='text-green-600'>{carbon}</span> tons of Carbon waste</span>
           <span><span className='text-sm'>Your cart total:</span> <span className='text-md font-semibold'>₹{formattedPrice}</span></span>
+          <CheckoutBtn/>
         </div>
       )}
     </div>

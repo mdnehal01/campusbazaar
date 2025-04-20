@@ -35,5 +35,6 @@ export interface Products{
     defect:string;
     listed:boolean;
     sold:boolean;
+    keywords:string[];
 }
 

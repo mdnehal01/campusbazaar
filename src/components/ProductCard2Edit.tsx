@@ -22,7 +22,7 @@ const ProductCard2Edit:React.FC<ProductCard2Props>= (
   {product}
 ) => {
   const { user } = useUser();
-  const discount = 100-((product.current_price / product.price) * 100);
+  const discount = +(100 - ((product.current_price / product.price) * 100)).toFixed(2);
   const router = useRouter()
 
   const [listed, setListed] = useState<Boolean>();

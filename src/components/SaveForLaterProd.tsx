@@ -218,9 +218,17 @@ export const SaveForLaterProd:React.FC<SaveForLaterProdProps> = ({
             </div>
             <motion.button
               layoutId={`button-${product.product_id}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 w-[120px] hover:bg-pink-500 hover:text-white text-black mt-4 md:mt-0"
+              className="px-2 py-2 text-sm rounded-full font-bold bg-gray-100 w-[120px] hover:bg-pink-500 hover:text-white text-black mt-4 md:mt-0"
             >
-              ₹{product.current_price}
+                {product.current_price == product.price ? (
+                    <p className="text-md font-bold">₹{Number(product.current_price).toLocaleString("en-IN")}</p>
+                ) : (
+                    <div className="flex relative gap-x-2 items-center">
+                        <p className="text-md font-bold text-black">₹{Number(product.current_price).toLocaleString("en-IN")}</p>
+                        <p className="text-xs absolute right-0 top-0 font-medium text-neutral-600 line-through">₹{Number(product.price).toLocaleString("en-IN")}</p>
+                    </div>
+                )}
+              {/* const discount = +(100 - ((product.current_price / product.price) * 100)).toFixed(2); */}
             </motion.button>
 
             {/* DELETE ANY PRODUCT FROM CART */}

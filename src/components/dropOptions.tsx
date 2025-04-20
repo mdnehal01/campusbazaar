@@ -17,15 +17,16 @@ import {
 import signOut from "@/actions/signOut"
 import { useRouter } from "next/navigation"
 import { useState } from "react";
-import { FaClosedCaptioning, FaCross, FaRegClosedCaptioning } from "react-icons/fa";
-import { CgClose, CgCloseO, CgCloseR } from "react-icons/cg";
-import { IoMdClose, IoMdCloseCircle } from "react-icons/io";
+import { CgClose } from "react-icons/cg";
+import { useUser } from "@/hooks/useUser";
+import { PrelinkImage } from "@/data";
 
 
 export function DropDownOptions() {
 
   const router = useRouter();
-
+  const {userDetails} = useUser();
+  const avatar = userDetails?.profile_pic_url;
   //for dialog box
   const [dialogBox, setDialogBox]=useState(false);
 
@@ -35,7 +36,7 @@ export function DropDownOptions() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <div className="w-9 rounded-full border-2 border-pink-300 cursor-pointer h-9 bg-center bg-contain" style={{
-          backgroundImage: `url('/category/1.png')`
+          backgroundImage: `url('${PrelinkImage}${avatar}')`
         }}></div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 mr-4">
