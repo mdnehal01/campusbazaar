@@ -3,6 +3,8 @@ import signupWithPassword from '@/actions/signupWithPassword';
 import React, { useState } from 'react'
 import Link from 'next/link';
 import toast from 'react-hot-toast';
+import { useSearchParams } from 'next/navigation';
+
 
 // interface SignUpFormProps {
 //     message?:string;
@@ -70,7 +72,12 @@ const SignUpForm= () => {
             // alert(`Welcome ${password}! ${email}`);
         } 
     }
+   
     
+// referral 
+const searchParams=useSearchParams();
+const referral= searchParams.get('referralcode'); 
+
     return (
         // <form onSubmit={handleSignup} method='post'>
         <form method='post' onSubmit={handleSignup}>
@@ -112,6 +119,8 @@ const SignUpForm= () => {
             <input type="submit" name="submit" required className="cursor-pointer w-full bg-pink-400 hover:bg-pink-500 h-8 text-white border-2 rounded-lg border-slate-300"/>  <br/>
             
             <h2 className="text-slate-500 text-[14px] pt-3"> Already a User?   <Link href="/login" className="text-pink-500">Login</Link>  </h2>
+            {/* buggy code */}
+            <input type="text" value={referral || ""} name="referred_by" readOnly/>
 
             {message && 
             <div className='text-red-500'>

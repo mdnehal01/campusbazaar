@@ -20,6 +20,7 @@ import { useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { useUser } from "@/hooks/useUser";
 import { PrelinkImage } from "@/data";
+import ShareModal from "./ui/ShareModal";
 
 
 export function DropDownOptions() {
@@ -28,7 +29,8 @@ export function DropDownOptions() {
   const {userDetails} = useUser();
   const avatar = userDetails?.profile_pic_url;
   //for dialog box
-  const [dialogBox, setDialogBox]=useState(false);
+  const [showModal, setShowModal] = useState(false);
+
 
   // TODO: if profile picture there then show profile picture instead of Static image icon
 
@@ -41,7 +43,9 @@ export function DropDownOptions() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 mr-4">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
+
         <DropdownMenuSeparator />
+
         <DropdownMenuGroup>
           <DropdownMenuItem onClick={() => router.push("/profile")}>
             Profile
@@ -51,32 +55,27 @@ export function DropDownOptions() {
             My Products
           </DropdownMenuItem>
 
-          <DropdownMenuItem>
-            Settings
+          <DropdownMenuItem onClick={()=>router.push("/report-bugs")}>
+            Report Bugs
+            <DropdownMenuShortcut>🪲</DropdownMenuShortcut>
           </DropdownMenuItem>
           
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger onClick={()=>setDialogBox(prev => !prev)}>Invite friends</DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-
-              {/* <DropdownMenuSubContent>
-                <DropdownMenuItem>via Whatsapp</DropdownMenuItem>
-                <DropdownMenuItem>via Link</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>More...</DropdownMenuItem>
-              </DropdownMenuSubContent> */}
-
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-          <DropdownMenuItem onClick={()=>router.push("/report-bugs")}>
-            Report Bugs
-            <DropdownMenuShortcut>🪲</DropdownMenuShortcut>
+          <DropdownMenuItem onClick={()=>setShowModal(prev => !prev)}>
+            Invite friends
           </DropdownMenuItem>
-          <DropdownMenuItem>About Us</DropdownMenuItem>
+
+          <DropdownMenuItem onClick={()=>router.push("/about-us")}>
+            About Us
+          </DropdownMenuItem>
+
+          <DropdownMenuItem disabled>
+            Settings
+          </DropdownMenuItem>
+
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         
@@ -90,6 +89,16 @@ export function DropDownOptions() {
 
 
       {/* dialog */}
+
+      {showModal && (
+        <ShareModal
+          url={`localhost:3000/signup?referralcode=${userDetails?.user_id}`}
+          onClose={() => setShowModal(false)}
+        />
+      )}
+
+
+{/* 
       {dialogBox && 
       <div className="h-screen w-screen bg-green-400/10 absolute left-0 top-0 grid place-items-center backdrop-blur-sm">
 
@@ -101,7 +110,7 @@ export function DropDownOptions() {
       </div>
 
       </div>
-      }
+      } */}
       
 
 
