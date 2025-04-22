@@ -6,6 +6,7 @@ import Image from 'next/image';
 import AddToCartBtn from '@/app/(products)/products/components/AddToCartBtn';
 import { useUser } from '@/hooks/useUser';
 import { useRouter } from 'next/navigation';
+import { PrelinkImage } from '@/data';
 
 interface ProductCard2Props{
   product:Products
@@ -25,7 +26,7 @@ const ProductCard2:React.FC<ProductCard2Props>= (
         <div className="wrapper">
           <div className="card-image w-full h-36 relative">
             {/* <Image */}
-            <Image className='object-cover' src={`https://zksekqhntfepyfdfyyxn.supabase.co/storage/v1/object/public/${product.image_urls.primary[0]}`} fill alt={product.title} />
+            <Image className='object-cover' src={`${PrelinkImage}${product.image_urls?.primary[0]}`} fill alt={product.title} />
           </div>
           <div className="content">
             <p className="title">{product.title}</p>

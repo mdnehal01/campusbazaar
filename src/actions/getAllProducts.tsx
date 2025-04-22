@@ -11,7 +11,6 @@ export const getAllProducts = async () => {
 
 
     if(data){
-        console.log(data)
         return data;
     }
     if(error){
