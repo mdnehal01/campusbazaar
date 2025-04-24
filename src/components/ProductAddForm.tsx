@@ -13,6 +13,7 @@ import AIButton from './AIButton'
 import toast from 'react-hot-toast'
 import AILoader from './AILoader'
 import AILoader2 from './AILoader2'
+import TruckLoader from './loader'
 
 let selectedCategory = "Choose a category"
 let disp = "hidden";
@@ -94,6 +95,7 @@ const ProductAddForm = () => {
     const generateAutoDescription = async (title:string) => {
         if(!title || !imageFiles){
             toast.error("Title or image missing")
+            return
         }
         setDescriptionLoading(true)
         if (!imageFiles) return;
@@ -124,10 +126,7 @@ const ProductAddForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             {isLoading && (
-                <div className='absolute z-10 gap-y-10 h-full w-full top-0 left-0 bg-pink-800 flex flex-col items-center justify-center'>
-                    <h1 className='text-white font-bold text-5xl'>Loading...</h1>
-                    <div className="loader"></div>
-                </div>
+                <TruckLoader/>
             )}
 
             {/* PHASE 1 */}

@@ -7,7 +7,7 @@ interface AIButtonProps{
 
 const AIButton:React.FC<AIButtonProps> = ({onclick}) => {
   return (
-    <StyledWrapper onClick={()=>{onclick}}>
+    <StyledWrapper onClick={()=>{onclick}} suppressHydrationWarning>
       <div className="outer-cont flex">
         <svg viewBox="0 0 24 24" height={24} width={24} xmlns="http://www.w3.org/2000/svg">
           <g fill="none">

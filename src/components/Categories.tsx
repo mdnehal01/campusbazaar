@@ -35,18 +35,18 @@ const Categories: React.FC<CategoriesProps> = ({ open, onClose }) => {
           // @ts-expect-error type any
           const mainCategory = category[mainCategoryKey];
           return (
-            <AccordionItem className="pb-9 pt-2" key={mainCategoryKey} value={mainCategoryKey}>
+            <AccordionItem className="pt-2" key={mainCategoryKey} value={mainCategoryKey}>
               <AccordionTrigger className="text-lg">
                 {mainCategory.titleMain}
               </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-y-14">
+              <AccordionContent className="flex flex-col gap-y-10">
                 {Object.keys(mainCategory).map((subCategoryKey) => {
                   if (subCategoryKey === "titleMain") return null; // Skip titleMain
                   const subCategory = mainCategory[subCategoryKey];
                   return (
                     <div key={subCategoryKey} className="flex flex-col gap-y-5">
                       <h1 className="text-md font-bold">{subCategory.titleSub}</h1>
-                      <div className="w-full grid grid-cols-8 gap-4">
+                      <div className="w-full grid grid-cols-12 gap-4">
                         {Object.keys(subCategory).map((itemKey) => {
                           if (itemKey === "titleSub") return null; // Skip titleSub
                           const item = subCategory[itemKey];
@@ -56,18 +56,20 @@ const Categories: React.FC<CategoriesProps> = ({ open, onClose }) => {
                             <div
                               key={itemKey}
                               onClick={() => sendData(uniqueKey)} // Use uniqueKey as the identifier
-                              className={`cursor-pointer gap-y-4 hover:border-pink-400 hover:bg-pink-100 p-3 w-[120px] h-[150px] rounded-md border ${
+                              className={`cursor-pointer bg-white hover:border-pink-400 hover:bg-pink-100 p-1 w-[80px] h-[90px] rounded-md border ${
                                 selectedCategory === uniqueKey
                                   ? "bg-pink-100 border-pink-500"
                                   : "border-neutral-200"
                               } flex flex-col items-center`}
                             >
+                              <div className="w-[40px] h-[50px] relative">
                               <Image
                                 src={item.imgLink}
                                 alt={item.titleSubSub}
-                                width={80}
-                                height={80}
+                                fill
                               />
+                              </div>
+
                               <p>{item.titleSubSub}</p>
                             </div>
                           );

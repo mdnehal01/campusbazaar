@@ -33,7 +33,6 @@ const ProductContent = () => {
                 My Products
             </h1>
             {loading ? (
-                // TODO: use LOADER animation here or skeleton
                 <TruckLoader/>
             ) : (
                 <ProductsBox products={products}/>

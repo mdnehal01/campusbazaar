@@ -103,11 +103,9 @@ const [selectedFile, setSelectedFile] = useState<File | null>(null);
     };
 
     return (
-        <div className='h-auto bg-white flex mt-4 '>
+        <div className='h-full relative bg-white flex mt-4 '>
             {isLoading ? (
-                <div className='h-full w-full flex justify-center items-center absolute left-0 top-0 bg-pink-800'>
                     <TruckLoader/>
-                </div>
             ): (
                 <>
                 
@@ -148,7 +146,7 @@ const [selectedFile, setSelectedFile] = useState<File | null>(null);
                                         Update Photo
                                         <input className='opacity-0 absolute left-0 h-full w-full' type="file" accept='image/webp, image/jpeg, image/png, image/jpg' name='profile-pic' onChange={handlePicChange} />
                                     </div>
-                                    <button className='h-10 w-40 bg-pink-600 rounded-sm font-sans border-gray-500 text-white py-2 px-6 hover:bg-pink-400'>Delete Photo</button>
+                                    <button className='h-10 w-40 bg-pink-600 rounded-sm font-sans border-gray-500 text-white py-2 px-6 hover:bg-pink-400' disabled>Delete Photo</button>
                                 </div>
 
                                 <input type="text" placeholder="College" value={college} onChange={(e) => setCollege(e.target.value)} className='h-10 w-80 rounded-sm px-3' />
