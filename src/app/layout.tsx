@@ -6,6 +6,7 @@ import Box from "@/components/box";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
 import UserProvider from "@/providers/UserProvider";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,11 +30,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-purple-100 via-white to-purple-50`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] dark:from-purple-900 from-purple-100 dark:via-neutral-900 via-white to-purple-50 dark:to-blue-950/35`}
       >
-        
+        <ThemeProvider>
         <ToasterProvider/>
         <SupabaseProvider>
           <UserProvider>
@@ -43,6 +44,7 @@ export default function RootLayout({
         </Box>
         </UserProvider>
         </SupabaseProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

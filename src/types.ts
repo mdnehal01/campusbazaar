@@ -36,5 +36,6 @@ export interface Products{
     listed:boolean;
     sold:boolean;
     keywords:string[];
+    allow_cod:boolean;
 }
 

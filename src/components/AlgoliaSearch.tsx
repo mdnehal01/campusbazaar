@@ -9,6 +9,8 @@ import {
 import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import InputType1 from './customs/inputType1';
+import { FaSearch } from 'react-icons/fa';
 
 const searchClient = algoliasearch('AE1LGFUMZI', '9c1cfe60caa6dea8d712e39939b58234');
 
@@ -61,11 +63,13 @@ function CustomSearchBox({ setSearchVal }: { setSearchVal: (val: string) => void
   };
 
   return (
-    <input
+    <InputType1
+      needIcon={true}
+      icon={<FaSearch className='text-white'/>}
       type="text"
       onChange={handleChange}
       placeholder="Search products..."
-      className="w-full border px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+      className="w-[500px] border-neutral-500 border px-4 rounded-full focus:outline-none focus:w-[700px] transition-all duration-200 focus:ring-2 focus:ring-pink-300"
     />
   );
 }
@@ -78,7 +82,7 @@ export default function AlgoliaSearch() {
       <InstantSearch searchClient={searchClient} indexName="products">
         <CustomSearchBox setSearchVal={setSearchVal} />
         {searchVal.trim() !== '' && (
-          <div className="bg-white border-neutral-700 border overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-pink-100 max-h-96 rounded-md mt-4">
+          <div className="bg-white absolute border-neutral-700 border overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-pink-100 max-h-96 rounded-md mt-4">
             <Hits hitComponent={Hit} />
           </div>
         )}

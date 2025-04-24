@@ -1,6 +1,5 @@
 import { getAllProducts } from '@/actions/getAllProducts';
 import { algoliasearch } from 'algoliasearch';
-import { Products } from '@/types';
 const client = algoliasearch('AE1LGFUMZI', 'b648acc6405916ebfc83a94e08fc5fa7');
 
 // Function to add or update products in Algolia
@@ -9,7 +8,7 @@ export const processRecords = async () => {
   const products = await datasetRequest;
 
   if(!products) return;
-
+  await client.clearObjects({indexName:'products'});
   // Loop through each product and use addOrUpdateObject to either add or update the object
   for (const product of products) {
     const response = await client.addOrUpdateObject({
